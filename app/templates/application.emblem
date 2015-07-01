@@ -1,0 +1,7 @@
+.container
+	.row
+		br
+		a.col-sm-3.btn.btn-warning
+				| Welcome to the Transition System :)
+
+outlet
