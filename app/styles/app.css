@@ -1,0 +1,28 @@
+.mitglieder .form-group {
+	margin-bottom: 0;
+}
+.uebernachtung {
+	padding: 20px;
+}
+.uebernachtung .radio label {
+	margin-bottom: 15px;
+	display: block;
+}
+
+.black, .uebernachtung .radio:hover .preis {
+	color: #000;
+}
+
+.preis {
+	float: right;
+	font-size: 14pt;
+	width: 60px;
+	text-align: center;
+	line-height: 12pt;
+	color: #aaa;
+}
+.preis small {
+	margin: 0;
+	display: block;
+	font-size: 8pt;
+}

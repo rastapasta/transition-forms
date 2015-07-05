@@ -1,0 +1,58 @@
+.uebernachtung
+	label.row Übernachtung beim Netzwerktreffen
+
+	.radio.row
+		label
+			input type="radio"
+			.preis
+				| 5 &euro;
+				small pro Nacht
+			| <b>attac-Villa oder Nachbar-Villa</b> (in Doppel- bis Mehrbettzimmern)
+			br
+			small
+				| (<b>Achtung:</b> Wir weisen darauf hin, dass die Duschmöglichkeiten begrenzt sind.
+				br
+				| Bitte bringe Deine eigene Bettwäsche bzw. Schlafsack mit.)
+
+	.radio.row
+		label
+			input type="radio"
+			.preis
+				| 60 &euro;
+				small pro Nacht
+			b Hotel-Doppelzimmer
+
+	.radio.row
+		label
+			input type="radio"
+			.preis
+				| 40 &euro;
+				small pro Nacht
+			b Hotel-Einzelzimmer
+
+	.radio.row
+		label
+			input type="radio"
+			.preis
+				| 5 &euro;
+				small pro Nacht
+			b Zeltplatz mit eigenem Zelt
+			br
+			small
+				| (<b>Achtung:</b> Wir weisen darauf hin, dass die Duschmöglichkeiten begrenzt sind.)
+
+	.radio.row
+		label
+			input type="radio"
+			.preis
+				| 5 &euro;
+				small pro Nacht
+			b Wohnmobilstellplatz auf dem Parkplatz
+			br
+			small
+				| (<b>Achtung:</b> Wir weisen darauf hin, dass die Duschmöglichkeiten begrenzt sind.)
+
+	.radio.row
+		label
+			input type="radio"
+			b Ich organisiere die Übernachtung selbst.

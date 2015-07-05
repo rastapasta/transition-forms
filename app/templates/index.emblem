@@ -1,0 +1,73 @@
+.row
+	.col-sm-5
+		.form-group
+			label Dein Name:
+			input.form-control placeholder="Vorname & Nachname"
+		.form-group
+			label Transition Initiative:
+			input.form-control placeholder="In welcher Transition Initiative bist du aktiv?"
+		
+		.form-group
+			label Deine Anschrift:
+			
+			div style="line-height:40px"
+				input.form-control style="width:75%;display:inline;" placeholder="Straße"
+				input.form-control style="width:23%;margin-left:2%;display:inline;" placeholder="Nummer"
+
+				input.form-control style="width:20%;display:inline;" placeholder="PLZ"
+				input.form-control style="width:78%;margin-left:2%;display:inline;" placeholder="Ort"
+
+				input.form-control style="width:100%;display:inline;" placeholder="Land"
+
+		.form-group
+			label E-Mail-Adresse:
+			input.form-control placeholder="E-Mail"
+
+		.form-group
+			label Telefon:
+			input.form-control placeholder="Handy- oder Festnetznummer"
+	.col-sm-7
+		label Meldest du nur dich, oder eine ganze Familie/Gruppe an?
+		.row
+			.col-sm-6
+				.radio style="margin-top:5px;"
+					label
+						input type="radio"
+						| Ich melde nur mich persönlich an
+			.col-sm-6
+				.radio style="margin-top:5px;"
+					label
+						input type="radio"
+						| Dies ist eine Familien-/Gruppenanmeldung
+
+		
+
+		.mitglieder
+			label Familien- bzw. Gruppenmitglieder
+			.row
+				.form-group.col-sm-6
+					.input-group
+						span.input-group-addon: i.glyphicon.glyphicon-user
+						input.form-control placeholder="Vor- & Nachname" value="Maxi Musterfrau" disabled=true
+				.col-sm-3: .radio
+					label
+						input type="radio" disabled=true
+						| Erwachsen
+				.col-sm-3: .radio
+					label
+						input type="radio" disabled=true
+						| Kind
+
+			.row
+				.form-group.col-sm-6
+					.input-group
+						span.input-group-addon: i.glyphicon.glyphicon-user
+						input.form-control placeholder="Vor- & Nachname"
+				.col-sm-3: .radio
+					label
+						input type="radio"
+						| Erwachsen
+				.col-sm-3: .radio
+					label
+						input type="radio"
+						| Kind
