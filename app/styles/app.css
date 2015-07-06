@@ -1,6 +1,14 @@
 .mitglieder .form-group {
 	margin-bottom: 0;
 }
+.mitglieder .alter {
+	 width: 80px;
+	 margin-top: 5px;
+	 padding-left: 2px;
+	 padding-right: 2px;
+	 display: inline;
+	 text-align: center;
+}
 .uebernachtung {
 	padding: 20px;
 }

@@ -1,6 +1,6 @@
 `import DS from 'ember-data'`
 
-Person = DS.Model.extend {
+Person = DS.Model.extend
   name: DS.attr 'string'
   initiative: DS.attr 'string'
   strasse: DS.attr 'string'
@@ -9,6 +9,23 @@ Person = DS.Model.extend {
   land: DS.attr 'string'
   email: DS.attr 'string'
   telefon: DS.attr 'string'
-}
+
+  alter: DS.attr 'number'
+
+  istErwachsen: DS.attr 'boolean', defaultValue: true
+  istBucher: DS.attr 'boolean', defaultValue: false
+  istGruppe: DS.attr 'boolean'
+
+Person.reopenClass
+	FIXTURES: [{
+		id: 1
+		istBucher: true
+		name: 'Maxi Musterfrau'
+	}, {
+    id: 2
+    name: 'Max Musterkind'
+    istErwachsen: false
+    alter: 12
+  }]
 
 `export default Person`

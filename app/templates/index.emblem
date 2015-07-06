@@ -2,10 +2,10 @@
 	.col-sm-5
 		.form-group
 			label Dein Name:
-			input.form-control placeholder="Vorname & Nachname"
+			=input class="form-control" value=model.bucher.name placeholder="Vorname & Nachname"
 		.form-group
 			label Transition Initiative:
-			input.form-control placeholder="In welcher Transition Initiative bist du aktiv?"
+			input.form-control value=model.bucher.initiative placeholder="In welcher Transition Initiative bist du aktiv?"
 		
 		.form-group
 			label Deine Anschrift:
@@ -32,42 +32,31 @@
 			.col-sm-6
 				.radio style="margin-top:5px;"
 					label
-						input type="radio"
+						radio-button value=false checked=model.bucher.istGruppe
 						| Ich melde nur mich persönlich an
 			.col-sm-6
 				.radio style="margin-top:5px;"
 					label
-						input type="radio"
+						radio-button value=true checked=model.bucher.istGruppe
 						| Dies ist eine Familien-/Gruppenanmeldung
 
-		
-
-		.mitglieder
-			label Familien- bzw. Gruppenmitglieder
-			.row
-				.form-group.col-sm-6
-					.input-group
-						span.input-group-addon: i.glyphicon.glyphicon-user
-						input.form-control placeholder="Vor- & Nachname" value="Maxi Musterfrau" disabled=true
-				.col-sm-3: .radio
-					label
-						input type="radio" disabled=true
-						| Erwachsen
-				.col-sm-3: .radio
-					label
-						input type="radio" disabled=true
-						| Kind
-
-			.row
-				.form-group.col-sm-6
-					.input-group
-						span.input-group-addon: i.glyphicon.glyphicon-user
-						input.form-control placeholder="Vor- & Nachname"
-				.col-sm-3: .radio
-					label
-						input type="radio"
-						| Erwachsen
-				.col-sm-3: .radio
-					label
-						input type="radio"
-						| Kind
+		if model.bucher.istGruppe
+			.mitglieder
+				label Familien- bzw. Gruppenmitglieder
+				each person in model.gruppe
+					.row
+						.form-group.col-sm-6
+							.input-group
+								span.input-group-addon: i.glyphicon.glyphicon-user
+								input.form-control placeholder="Vor- & Nachname" value=person.name disabled=person.istBucher
+						.col-sm-3: .radio
+							label
+								radio-button value=true checked=person.istErwachsen disabled=person.istBucher
+								| Erwachsen
+						.col-sm-1: .radio style="margin-left:-15px;"
+							label
+								radio-button value=false checked=person.istErwachsen disabled=person.istBucher
+								| Kind
+						unless person.istErwachsen
+							.col-sm-2.form-group-sm
+								view "select" content=alter optionValuePath="content.id" optionLabelPath="content.value" class="form-control alter" value=person.alter prompt="Alter"
