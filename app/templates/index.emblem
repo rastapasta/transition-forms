@@ -45,20 +45,20 @@
 				label Familien- bzw. Gruppenmitglieder
 				each person in model.gruppe
 					.row
-						.form-group.col-sm-6
+						.form-group.col-sm-6.col-xs-12
 							.input-group
 								span.input-group-addon: i.glyphicon.glyphicon-user
 								=input class="form-control" placeholder="Vor- & Nachname" value=person.name disabled=person.istBucher
-						.col-sm-3: .radio
+						.col-sm-3.col-xs-6: .radio
 							label
 								radio-button value=true checked=person.istErwachsen disabled=person.istBucher
 								| Erwachsen
-						.col-sm-1: .radio style="margin-left:-15px;"
+						.col-sm-1.col-xs-3: .radio style="margin-left:-15px;"
 							label
 								radio-button value=false checked=person.istErwachsen disabled=person.istBucher
 								| Kind
 						unless person.istErwachsen
-							.col-sm-2.form-group-sm
+							.col-sm-2.col-xs-3.form-group-sm
 								view "select" content=alter optionValuePath="content.id" optionLabelPath="content.value" class="form-control alter" value=person.alter prompt="Alter"
 
 				br
