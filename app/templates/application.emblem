@@ -8,9 +8,13 @@
 		.col-sm-6
 			| Deine persönlichen Ansprechpartner*innen aus dem Orgateam: &nbsp;&nbsp;
 		.col-sm-3
-			| Michelle Platt (0151..)
+			| Michelle Platt
+			.i.glyphicon.glyphicon-phone style="margin-left:10px;margin-right:2px;"
+			| 0176 78316497
 		.col-sm-3
-			| Vanessa Hautmann (0151...)
+			| Vanessa Hautmann
+			.i.glyphicon.glyphicon-phone style="margin-left:10px;margin-right:2px;"
+			| 0176 70331922
 		br
 		br
 	outlet

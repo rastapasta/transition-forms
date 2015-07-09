@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-IndexController = Ember.Controller.extend
+IndexController = Ember.ObjectController.extend
 	alter: [
 		{id: 1, value: '1 Jahr'}
 		{id: 2, value: '2 Jahre'}
@@ -20,5 +20,32 @@ IndexController = Ember.Controller.extend
 		{id: 16, value: '16 Jahre'}
 		{id: 17, value: '17 Jahre'}
 	]
+
+	showUebernachtung: (->
+		v = @get 'model.bucher.istGruppe'
+		v is false
+	).property 'model.bucher.istGruppe'
+	gruppeHatKind: (->
+		hatKind = false
+		@get('model.gruppe').forEach (person) ->
+			unless person.get('istErwachsen')
+				hatKind = true
+				return true
+		hatKind
+	).property 'model.gruppe.@each.istErwachsen'
+
+	gruppenFelder: (->
+		oneEmpty = false
+		@get('model.gruppe').forEach (person) ->
+			unless person.get('name')
+				if oneEmpty
+					person.deleteRecord()
+				else
+					oneEmpty = true
+
+		unless oneEmpty
+			@store.createRecord 'person'
+
+	).observes 'model.gruppe.@each.name'
 
 `export default IndexController`

@@ -48,7 +48,7 @@
 						.form-group.col-sm-6
 							.input-group
 								span.input-group-addon: i.glyphicon.glyphicon-user
-								input.form-control placeholder="Vor- & Nachname" value=person.name disabled=person.istBucher
+								=input class="form-control" placeholder="Vor- & Nachname" value=person.name disabled=person.istBucher
 						.col-sm-3: .radio
 							label
 								radio-button value=true checked=person.istErwachsen disabled=person.istBucher
@@ -60,3 +60,108 @@
 						unless person.istErwachsen
 							.col-sm-2.form-group-sm
 								view "select" content=alter optionValuePath="content.id" optionLabelPath="content.value" class="form-control alter" value=person.alter prompt="Alter"
+
+				br
+				if gruppeHatKind
+					label Kinderbetreuung während des Netzwerktreffens
+					.checkbox
+						label
+							input type="checkbox"
+							| Ich möchte mich an der selbstorganisierten Kinderbetreuung beteiligen
+
+
+					p style="margin-top:10px;"
+						| Wir freuen uns sehr, wenn Familien mit Kindern am Transition‐Netzwerktreffen teilnehmen! 
+					p
+						| Wir haben uns allerdings entschieden, unsererseits keine Kinderbetreuung anzubieten. Denn 
+						| eine pädagogisch sinnvolle Kinderbetreuung erzeugt auch Kosten, und wir wollen die 
+						| Teilnahme am Netzwerktreffen so günstig wie möglich machen. Gerne unterstützen wir euch 
+						| aber bei der Planung und der Vernetzung mit anderen Eltern, so dass ihr euch untereinander 
+						| absprechen könnt.
+
+
+				a.btn.btn-success style="float:right;margin-top:10px"
+					| Weiter 
+					i.glyphicon.glyphicon-chevron-right
+
+
+		if showUebernachtung
+			.uebernachtung
+				label.row Übernachtung beim Netzwerktreffen
+
+				.radio.row
+					label
+						radio-button value="attacVilla" checked=model.bucher.uebernachtung
+						.preis
+							| 5 &euro;
+							small pro Nacht
+						| <b>attac-Villa oder Nachbar-Villa</b> (in Doppel- bis Mehrbettzimmern)
+						br
+						small
+							| (<b>Achtung:</b> Wir weisen darauf hin, dass die Duschmöglichkeiten begrenzt sind.
+							br
+							| Bitte bringe Deine eigene Bettwäsche bzw. Schlafsack mit.)
+
+				.radio.row
+					label
+						radio-button value="Einzelzimmer" checked=model.bucher.uebernachtung
+						.preis
+							| 40 &euro;
+							small pro Nacht
+						b Hotel-Einzelzimmer
+
+				.radio.row
+					label
+						radio-button value="Doppelzimmer" checked=model.bucher.uebernachtung
+						.preis
+							| 65 &euro;
+							small pro Nacht
+						b Hotel-Doppelzimmer
+
+				.radio.row
+					label
+						radio-button value="Dreibettzimmer" checked=model.bucher.uebernachtung
+						.preis
+							| 85 &euro;
+							small pro Nacht
+						b Hotel-Dreibettlzimmer
+
+				.radio.row
+					label
+						radio-button value="Vierbettzimmer" checked=model.bucher.uebernachtung
+						.preis
+							| 100 &euro;
+							small pro Nacht
+						b Hotel-Vierbettzimmer
+
+				.radio.row
+					label
+						radio-button value="Zeltplatz" checked=model.bucher.uebernachtung
+						.preis
+							| 5 &euro;
+							small pro Nacht
+						b Zeltplatz mit eigenem Zelt
+						br
+						small
+							| (<b>Achtung:</b> Wir weisen darauf hin, dass die Duschmöglichkeiten begrenzt sind.)
+
+				.radio.row
+					label
+						radio-button value="Wohnmobil" checked=model.bucher.uebernachtung
+						.preis
+							| 5 &euro;
+							small pro Nacht
+						b Wohnmobilstellplatz auf dem Parkplatz
+						br
+						small
+							| (<b>Achtung:</b> Wir weisen darauf hin, dass die Duschmöglichkeiten begrenzt sind.)
+
+				.radio.row
+					a.btn.btn-success style="float:right;"
+						| Weiter 
+						i.glyphicon.glyphicon-chevron-right
+
+					label
+						radio-button value="selbstOrganisiert" checked=model.bucher.uebernachtung
+						b Ich organisiere die Übernachtung selbst.
+

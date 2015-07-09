@@ -3,7 +3,7 @@
 
 	.radio.row
 		label
-			input type="radio"
+			input type="radio" name="uebernachtung"
 			.preis
 				| 5 &euro;
 				small pro Nacht
@@ -16,9 +16,17 @@
 
 	.radio.row
 		label
+			input type="radio" name="uebernachtung"
+			.preis
+				| 40 &euro;
+				small pro Nacht
+			b Hotel-Einzelzimmer
+
+	.radio.row
+		label
 			input type="radio"
 			.preis
-				| 60 &euro;
+				| 65 &euro;
 				small pro Nacht
 			b Hotel-Doppelzimmer
 
@@ -26,9 +34,17 @@
 		label
 			input type="radio"
 			.preis
-				| 40 &euro;
+				| 85 &euro;
 				small pro Nacht
-			b Hotel-Einzelzimmer
+			b Hotel-Dreibettlzimmer
+
+	.radio.row
+		label
+			input type="radio"
+			.preis
+				| 100 &euro;
+				small pro Nacht
+			b Hotel-Vierbettzimmer
 
 	.radio.row
 		label

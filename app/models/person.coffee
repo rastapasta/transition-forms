@@ -16,16 +16,13 @@ Person = DS.Model.extend
   istBucher: DS.attr 'boolean', defaultValue: false
   istGruppe: DS.attr 'boolean'
 
+  uebernachtung: DS.attr 'string'
+
 Person.reopenClass
 	FIXTURES: [{
 		id: 1
 		istBucher: true
 		name: 'Maxi Musterfrau'
-	}, {
-    id: 2
-    name: 'Max Musterkind'
-    istErwachsen: false
-    alter: 12
-  }]
+	}]
 
 `export default Person`
