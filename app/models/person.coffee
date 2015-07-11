@@ -4,6 +4,7 @@ Person = DS.Model.extend
   name: DS.attr 'string'
   initiative: DS.attr 'string'
   strasse: DS.attr 'string'
+  hausnummer: DS.attr 'string'
   plz: DS.attr 'string'
   ort: DS.attr 'string'
   land: DS.attr 'string'

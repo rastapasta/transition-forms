@@ -1,3 +1,26 @@
+input.strasse {
+	width: 75%;
+	display: inline;
+}
+input.hausnummer {
+	width: 23%;
+	margin-left: 2%;
+	display: inline;
+}
+input.plz {
+	width: 20%;
+	display: inline;
+}
+input.ort {
+	width: 78%;
+	margin-left: 2%;
+	display: inline;
+}
+input.land {
+	width: 100%;
+	display: inline;
+}
+
 .mitglieder .form-group {
 	margin-bottom: 0;
 }

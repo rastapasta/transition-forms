@@ -5,7 +5,7 @@
 		label
 			input type="radio" name="uebernachtung"
 			.preis
-				| 5 &euro;
+				| 10 &euro;
 				small pro Nacht
 			| <b>attac-Villa oder Nachbar-Villa</b> (in Doppel- bis Mehrbettzimmern)
 			br

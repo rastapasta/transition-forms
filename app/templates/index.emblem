@@ -5,27 +5,27 @@
 			=input class="form-control" value=model.bucher.name placeholder="Vorname & Nachname"
 		.form-group
 			label Transition Initiative:
-			input.form-control value=model.bucher.initiative placeholder="In welcher Transition Initiative bist du aktiv?"
+			=input class="form-control" value=model.bucher.initiative placeholder="In welcher Transition Initiative bist du aktiv?"
 		
 		.form-group
 			label Deine Anschrift:
 			
 			div style="line-height:40px"
-				input.form-control style="width:75%;display:inline;" placeholder="Straße"
-				input.form-control style="width:23%;margin-left:2%;display:inline;" placeholder="Nummer"
+				=input class="form-control strasse" placeholder="Straße" value=model.bucher.strasse
+				=input class="form-control hausnummer" placeholder="Nummer" value=model.bucher.hausnummer
 
-				input.form-control style="width:20%;display:inline;" placeholder="PLZ"
-				input.form-control style="width:78%;margin-left:2%;display:inline;" placeholder="Ort"
+				=input class="form-control plz" placeholder="PLZ" value=model.bucher.plz
+				=input class="form-control ort" placeholder="Ort" value=model.bucher.ort
 
-				input.form-control style="width:100%;display:inline;" placeholder="Land"
+				=input class="form-control land" placeholder="Land" value=model.bucher.land
 
 		.form-group
 			label E-Mail-Adresse:
-			input.form-control placeholder="E-Mail"
+			=input class="form-control" placeholder="E-Mail" value=model.bucher.email
 
 		.form-group
 			label Telefon:
-			input.form-control placeholder="Handy- oder Festnetznummer"
+			=input class="form-control" placeholder="Handy- oder Festnetznummer" value=model.bucher.telefon
 	.col-sm-7
 		label Meldest du nur dich, oder eine ganze Familie/Gruppe an?
 		.row
@@ -88,80 +88,23 @@
 		if showUebernachtung
 			.uebernachtung
 				label.row Übernachtung beim Netzwerktreffen
+				each unterkunft in unterkuenfte
+					.radio.row
+						label
+							radio-button value=unterkunft.id checked=model.bucher.uebernachtung
+							if unterkunft.preis							
+								.preis
+									| {{unterkunft.preis}} &euro;
+									small pro Nacht
+							' <b>{{unterkunft.name}}</b>
+							if unterkunft.info
+								| ({{unterkunft.info}})
 
-				.radio.row
-					label
-						radio-button value="attacVilla" checked=model.bucher.uebernachtung
-						.preis
-							| 5 &euro;
-							small pro Nacht
-						| <b>attac-Villa oder Nachbar-Villa</b> (in Doppel- bis Mehrbettzimmern)
-						br
-						small
-							| (<b>Achtung:</b> Wir weisen darauf hin, dass die Duschmöglichkeiten begrenzt sind.
-							br
-							| Bitte bringe Deine eigene Bettwäsche bzw. Schlafsack mit.)
+							if unterkunft.achtung
+								br
+								small
+									| (<b>Achtung:</b> {{{unterkunft.achtung}}})
 
-				.radio.row
-					label
-						radio-button value="Einzelzimmer" checked=model.bucher.uebernachtung
-						.preis
-							| 40 &euro;
-							small pro Nacht
-						b Hotel-Einzelzimmer
-
-				.radio.row
-					label
-						radio-button value="Doppelzimmer" checked=model.bucher.uebernachtung
-						.preis
-							| 65 &euro;
-							small pro Nacht
-						b Hotel-Doppelzimmer
-
-				.radio.row
-					label
-						radio-button value="Dreibettzimmer" checked=model.bucher.uebernachtung
-						.preis
-							| 85 &euro;
-							small pro Nacht
-						b Hotel-Dreibettlzimmer
-
-				.radio.row
-					label
-						radio-button value="Vierbettzimmer" checked=model.bucher.uebernachtung
-						.preis
-							| 100 &euro;
-							small pro Nacht
-						b Hotel-Vierbettzimmer
-
-				.radio.row
-					label
-						radio-button value="Zeltplatz" checked=model.bucher.uebernachtung
-						.preis
-							| 5 &euro;
-							small pro Nacht
-						b Zeltplatz mit eigenem Zelt
-						br
-						small
-							| (<b>Achtung:</b> Wir weisen darauf hin, dass die Duschmöglichkeiten begrenzt sind.)
-
-				.radio.row
-					label
-						radio-button value="Wohnmobil" checked=model.bucher.uebernachtung
-						.preis
-							| 5 &euro;
-							small pro Nacht
-						b Wohnmobilstellplatz auf dem Parkplatz
-						br
-						small
-							| (<b>Achtung:</b> Wir weisen darauf hin, dass die Duschmöglichkeiten begrenzt sind.)
-
-				.radio.row
-					a.btn.btn-success style="float:right;"
-						| Weiter 
-						i.glyphicon.glyphicon-chevron-right
-
-					label
-						radio-button value="selbstOrganisiert" checked=model.bucher.uebernachtung
-						b Ich organisiere die Übernachtung selbst.
-
+				a.btn.btn-success style="float:right;"
+					| Weiter 
+					i.glyphicon.glyphicon-chevron-right
