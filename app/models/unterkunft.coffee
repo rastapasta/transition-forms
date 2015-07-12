@@ -38,10 +38,12 @@ Bitte bringe Deine eigene Bettwäsche bzw. Schlafsack mit.'
 		preis: 100
 	},{
 		id: 'zeltplatz'
-		name: 'Zeltplatz mit eigenem Zelt'
+		name: 'Zeltplatz'
 		plaetze: 1
 		preis: 5
-		achtung: 'Wir weisen darauf hin, dass die Duschmöglichkeiten begrenzt sind.'
+		achtung: 'Wir weisen darauf hin, dass die Duschmöglichkeiten begrenzt sind.<br/>
+Bitte sorge selbst für entsprechende Ausrüstung wie Zelt, Schlafsack usw.
+'
 	},{
 		id: 'wohnmobil'
 		name: 'Wohnmobilstellplatz auf dem Parkplatz'

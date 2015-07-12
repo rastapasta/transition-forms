@@ -45,7 +45,7 @@
 				em-tab
 					| Gruppen-/Familienmitglieder
 				em-tab
-					| Teilnahmegebühr
+					| Teilnahmebeitrag
 				em-tab
 					| Unterkunft
 				em-tab
@@ -72,9 +72,15 @@
 								.col-sm-2.col-xs-3.form-group-sm
 									view "select" content=alter optionValuePath="content.id" optionLabelPath="content.value" class="form-control alter" value=person.alter prompt="Alter"
 
-					br
+
+					label style="margin-top:10px;" Anwesenheit beim Netzwerktreffen
+					.checkbox
+						label
+							=input type="checkbox"
+							| Wir reisen alle am gleichen Tag gemeinsam an und ab
+
 					if gruppeHatKind
-						label Kinderbetreuung während des Netzwerktreffens
+						label style="margin-top:10px;" Kinderbetreuung während des Netzwerktreffens
 						.checkbox
 							label
 								=input type="checkbox" checked=model.bucher.willBetreuen
@@ -100,8 +106,8 @@
 				.beitrag
 					label Teilnahmebeitrag
 					p
-						' Im Teilnahmebeitrag inbegriffen ist die leckere vegane und vegetarische
-						' Verpflegung von WamKat am gesamten Wochenende.
+						' Im Teilnahmebeitrag inbegriffen ist leckere vegane und vegetarische
+						' Verpflegung von WamKat über das gesamte Wochenende hinweg.
 
 					p style="margin-bottom:20px;"
 						| Hiermit melde ich <b>mich persönlich</b> zum Netzwerktreffen zu folgenden Konditionen an:
