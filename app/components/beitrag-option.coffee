@@ -9,7 +9,7 @@ BeitragOption = Ember.Component.extend
 			@set 'beitrag.flexiblerPreis', Math.floor v
 
 	heartStyle: (->
-		ratio = (500-@get('beitrag.aktuellerPreis'))/430
+		ratio = (250-@get('beitrag.aktuellerPreis'))/180
 
 		red = 255-Math.floor(255*ratio)
 		"color:rgb(#{red},0,0);"

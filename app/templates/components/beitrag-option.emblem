@@ -20,7 +20,7 @@
 
 			if showSlider
 				div style="width:40%;margin-left:90px;float:right;position:absolute;"
-					range-slider connect="lower" start=beitrag.flexiblerPreis min=70 step=10 max=500 slide="slided"
+					range-slider connect="lower" start=beitrag.flexiblerPreis min=70 step=10 max=250 slide="slided"
 
 			' <b>{{beitrag.name}}</b>
 
