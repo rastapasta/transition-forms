@@ -50,15 +50,7 @@
 				| Hiermit melde ich mich zum Netzwerktreffen zu folgenden Konditionen an:
 
 			each beitrag in beitraege
-				.radio.row: .col-sm-7.col-sm-offset-1
-					label
-						radio-button value=beitrag.id checked=model.bucher.beitrag
-						.preis {{beitrag.preis}} &euro;
-
-						' <b>{{beitrag.name}}</b>
-						if beitrag.info
-							| (#{beitrag.info})
-
+				beitrag-option beitrag=beitrag current=model.bucher.beitrag
 
 			p style="margin-top:10px;"
 				' Bitte habe Verständnis, dass wir der Einfachheit halber uns bei der Anmeldung
@@ -117,7 +109,7 @@
 			.uebernachtung
 				label.row Übernachtung beim Netzwerktreffen
 				each unterkunft in unterkuenfte
-					.radio.row
+					.radio.row.form-group
 						label
 							radio-button value=unterkunft.id checked=model.bucher.uebernachtung
 							if unterkunft.preis						

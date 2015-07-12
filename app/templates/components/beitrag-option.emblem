@@ -1,0 +1,27 @@
+.radio.row
+	.col-sm-9.col-sm-offset-1.form-group
+		label style="white-space:nowrap;"
+			radio-button value=beitrag.id checked=current
+			.preis
+				if beitrag.preis
+					| {{beitrag.aktuellerPreis}} &euro;
+					
+					if beitrag.istFlexibel
+						if beitrag.individualPreis
+							small gewählt
+						else
+							small mindestens
+					else
+						small insgesamt
+				else
+					small kostenlos
+
+			if showSlider
+				div style="width:40%;margin-left:100px;float:right;position:absolute;"
+					range-slider connect="lower" start=beitrag.flexiblerPreis min=70 step=10 max=500 change="changedAction"
+
+			' <b>{{beitrag.name}}</b>
+
+
+			if beitrag.info
+				| (#{beitrag.info})

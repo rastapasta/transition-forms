@@ -33,15 +33,14 @@ input.land {
 	 text-align: center;
 }
 .uebernachtung {
-	padding: 20px;
+	padding: 15px;
 }
 .uebernachtung .radio label {
-	margin-bottom: 15px;
+	margin-bottom: 10px;
 	display: block;
 }
 
 .beitrag .radio label {
-	margin-bottom: 15px;
 	display: block;
 }
 
