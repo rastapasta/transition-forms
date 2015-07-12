@@ -1,6 +1,8 @@
 `import Ember from 'ember'`
 
 BeitragOption = Ember.Component.extend
+	classNameBindings: ['isActive']
+
 	actions:
 		changedAction: (v) ->
 			@set 'beitrag.flexiblerPreis', Math.floor v
