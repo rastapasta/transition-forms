@@ -47,7 +47,7 @@
 				' Verpflegung von WamKat am gesamten Wochenende.
 
 			p style="margin-bottom:20px;"
-				| Hiermit melde ich mich zum Netzwerktreffen zu folgenden Konditionen an:
+				| Hiermit melde ich <b>mich persönlich</b> zum Netzwerktreffen zu folgenden Konditionen an:
 
 			each beitrag in beitraege
 				beitrag-option beitrag=beitrag current=model.bucher.beitrag
@@ -109,21 +109,7 @@
 			.uebernachtung
 				label.row Übernachtung beim Netzwerktreffen
 				each unterkunft in unterkuenfte
-					.radio.row.form-group
-						label
-							radio-button value=unterkunft.id checked=model.bucher.uebernachtung
-							if unterkunft.preis						
-								.preis
-									| {{unterkunft.preis}} &euro;
-									small pro Nacht
-							' <b>{{unterkunft.name}}</b>
-							if unterkunft.info
-								| ({{unterkunft.info}})
-
-							if unterkunft.achtung
-								br
-								small
-									| (<b>Achtung:</b> {{{unterkunft.achtung}}})
+					unterkunft-option unterkunft=unterkunft current=model.bucher.unterkunft
 
 				a.btn.btn-success style="float:right;"
 					| Weiter 
