@@ -5,6 +5,7 @@ IndexRoute = Ember.Route.extend
 		bucher: @store.find 'person', 1
 		gruppe: @store.find 'person'
 		unterkuenfte: @store.find 'unterkunft'
+		beitraege: @store.find 'beitrag'
 
 
 

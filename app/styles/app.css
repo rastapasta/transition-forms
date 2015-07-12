@@ -40,7 +40,13 @@ input.land {
 	display: block;
 }
 
-.black, .uebernachtung .radio:hover .preis {
+.beitrag .radio label {
+	margin-bottom: 15px;
+	display: block;
+}
+
+
+.black, .radio:hover .preis {
 	color: #000;
 }
 

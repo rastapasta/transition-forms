@@ -15,7 +15,9 @@ Person = DS.Model.extend
 
   istErwachsen: DS.attr 'boolean', defaultValue: true
   istBucher: DS.attr 'boolean', defaultValue: false
+  
   istGruppe: DS.attr 'boolean'
+  willBetreuen: DS.attr 'boolean'
 
   uebernachtung: DS.attr 'string'
 

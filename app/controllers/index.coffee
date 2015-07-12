@@ -25,6 +25,7 @@ IndexController = Ember.ObjectController.extend
 		v = @get 'model.bucher.istGruppe'
 		v is false
 	).property 'model.bucher.istGruppe'
+
 	gruppeHatKind: (->
 		hatKind = false
 		@get('model.gruppe').forEach (person) ->

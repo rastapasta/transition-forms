@@ -40,6 +40,33 @@
 						radio-button value=true checked=model.bucher.istGruppe
 						| Dies ist eine Familien-/Gruppenanmeldung
 
+		.beitrag
+			label Teilnehmer*innen Preis
+			p
+				' Im Teilnahmebeitrag inbegriffen ist die leckere vegane und vegetarische
+				' Verpflegung von WamKat am gesamten Wochenende.
+
+			p style="margin-bottom:20px;"
+				| Hiermit melde ich mich zum Netzwerktreffen zu folgenden Konditionen an:
+
+			each beitrag in beitraege
+				.radio.row: .col-sm-7.col-sm-offset-1
+					label
+						radio-button value=beitrag.id checked=model.bucher.beitrag
+						.preis {{beitrag.preis}} &euro;
+
+						' <b>{{beitrag.name}}</b>
+						if beitrag.info
+							| (#{beitrag.info})
+
+
+			p style="margin-top:10px;"
+				' Bitte habe Verständnis, dass wir der Einfachheit halber uns bei der Anmeldung
+				' auf diese drei Preise reduzieren und keine Tagespreise anbieten. Wie Ihr seht,
+				' sind Sie ohnehin sehr niedrig kalkuliert. Wenn es trotzdem finanzielle
+				' Schwierigkeiten bereiten sollte, setze Dich bitte direkt mit uns in
+				' Verbindung (Kontaktdaten siehe oben).
+
 		if model.bucher.istGruppe
 			.mitglieder
 				label Familien- bzw. Gruppenmitglieder
@@ -66,18 +93,19 @@
 					label Kinderbetreuung während des Netzwerktreffens
 					.checkbox
 						label
-							input type="checkbox"
+							=input type="checkbox" checked=model.bucher.willBetreuen
 							| Ich möchte mich an der selbstorganisierten Kinderbetreuung beteiligen
 
 
 					p style="margin-top:10px;"
 						| Wir freuen uns sehr, wenn Familien mit Kindern am Transition‐Netzwerktreffen teilnehmen! 
+
 					p
-						| Wir haben uns allerdings entschieden, unsererseits keine Kinderbetreuung anzubieten. Denn 
-						| eine pädagogisch sinnvolle Kinderbetreuung erzeugt auch Kosten, und wir wollen die 
-						| Teilnahme am Netzwerktreffen so günstig wie möglich machen. Gerne unterstützen wir euch 
-						| aber bei der Planung und der Vernetzung mit anderen Eltern, so dass ihr euch untereinander 
-						| absprechen könnt.
+						' Wir haben uns allerdings entschieden, unsererseits keine Kinderbetreuung anzubieten. Denn
+						' eine pädagogisch sinnvolle Kinderbetreuung erzeugt auch Kosten, und wir wollen die
+						' Teilnahme am Netzwerktreffen so günstig wie möglich machen. Gerne unterstützen wir euch
+						' aber bei der Planung und der Vernetzung mit anderen Eltern, so dass ihr euch untereinander
+						' absprechen könnt.
 
 
 				a.btn.btn-success style="float:right;margin-top:10px"
@@ -92,7 +120,7 @@
 					.radio.row
 						label
 							radio-button value=unterkunft.id checked=model.bucher.uebernachtung
-							if unterkunft.preis							
+							if unterkunft.preis						
 								.preis
 									| {{unterkunft.preis}} &euro;
 									small pro Nacht
