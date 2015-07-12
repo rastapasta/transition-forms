@@ -8,9 +8,11 @@
 					
 					if beitrag.istFlexibel
 						if beitrag.individualPreis
-							small gewählt
+							small
+								' Danke!
+								i.glyphicon.glyphicon-heart
 						else
-							small mindestens
+							small wählbar
 					else
 						small insgesamt
 				else
@@ -18,7 +20,7 @@
 
 			if showSlider
 				div style="width:40%;margin-left:100px;float:right;position:absolute;"
-					range-slider connect="lower" start=beitrag.flexiblerPreis min=70 step=10 max=500 change="changedAction"
+					range-slider connect="lower" start=beitrag.flexiblerPreis min=70 step=10 max=500 slide="slided"
 
 			' <b>{{beitrag.name}}</b>
 

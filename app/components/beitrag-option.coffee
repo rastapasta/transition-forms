@@ -4,7 +4,7 @@ BeitragOption = Ember.Component.extend
 	classNameBindings: ['isActive']
 
 	actions:
-		changedAction: (v) ->
+		slided: (v) ->
 			@set 'beitrag.flexiblerPreis', Math.floor v
 
 	isActive: (->
