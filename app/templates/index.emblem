@@ -74,10 +74,25 @@
 
 
 					label style="margin-top:10px;" Anwesenheit beim Netzwerktreffen
+					.row
+						.col-sm-6.checkbox
+							label
+								=input type="checkbox" checked=model.bucher.reistZusammen
+								| Wir reisen alle am gleichen Tag an und ab
+						if model.bucher.reistZusammen
+							.col-sm-3.col-xs-6
+								view "select" content=anreise optionValuePath="content.id" optionLabelPath="content.value" class="form-control" value=model.bucher.anreise prompt="Anreise am.."
+							.col-sm-3.col-xs-6
+								view "select" content=abreiseDynamisch optionValuePath="content.id" optionLabelPath="content.value" class="form-control" value=model.bucher.abreise prompt="Abreise am.."
+
+					label style="margin-top:10px;" Interesse am Mithelfen?
 					.checkbox
 						label
 							=input type="checkbox"
-							| Wir reisen alle am gleichen Tag gemeinsam an und ab
+							' Wir suchen bis zu 10 Teilnehmer*innen, die bereits
+							b am Mittwoch anreisen 
+							' und Donnerstag aufbauen, Transparente malen, putzen etc. sowie während des Wochenende helfend unterstützen.
+							' Kostenlose Teilnahme winkt! Hat ein Mitglied deiner Gruppe/Familie Interesse?
 
 					if gruppeHatKind
 						label style="margin-top:10px;" Kinderbetreuung während des Netzwerktreffens
@@ -110,17 +125,17 @@
 						' Verpflegung von WamKat über das gesamte Wochenende hinweg.
 
 					p style="margin-bottom:20px;"
-						| Hiermit melde ich <b>mich persönlich</b> zum Netzwerktreffen zu folgenden Konditionen an:
+						| Hiermit meldest du <b>dich persönlich</b> zum Netzwerktreffen zu folgenden Konditionen an:
 
 					each beitrag in beitraege
 						beitrag-option beitrag=beitrag current=model.bucher.beitrag
 
 					p style="margin-top:10px;"
-						' Bitte habe Verständnis, dass wir der Einfachheit halber uns bei der Anmeldung
-						' auf diese drei Preise reduzieren und keine Tagespreise anbieten. Wie Ihr seht,
-						' sind Sie ohnehin sehr niedrig kalkuliert. Wenn es trotzdem finanzielle
-						' Schwierigkeiten bereiten sollte, setze Dich bitte direkt mit uns in
-						' Verbindung (Kontaktdaten siehe oben).
+						' Bitte habe Verständnis, dass wir der Einfachheit halber uns bei der Anmeldung
+						' auf diese drei Preise reduzieren und keine Tagespreise anbieten. Wie Ihr seht,
+						' sind Sie ohnehin sehr niedrig kalkuliert. Wenn es trotzdem finanzielle
+						' Schwierigkeiten bereiten sollte, setze Dich bitte direkt mit uns in
+						' Verbindung (Kontaktdaten siehe oben).
 
 
 			em-tab-panel

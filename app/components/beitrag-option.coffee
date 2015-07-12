@@ -2,10 +2,18 @@
 
 BeitragOption = Ember.Component.extend
 	classNameBindings: ['isActive']
+	classNames: ['blink']
 
 	actions:
 		slided: (v) ->
 			@set 'beitrag.flexiblerPreis', Math.floor v
+
+	heartStyle: (->
+		ratio = (500-@get('beitrag.aktuellerPreis'))/430
+
+		red = 255-Math.floor(255*ratio)
+		"color:rgb(#{red},0,0);"
+	).property 'beitrag.aktuellerPreis'
 
 	isActive: (->
 		@get('current') is @get('beitrag.id')

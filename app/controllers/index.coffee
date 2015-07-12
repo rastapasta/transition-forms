@@ -1,6 +1,31 @@
 `import Ember from 'ember'`
 
 IndexController = Ember.ObjectController.extend
+	anreise: [
+		{id: 'freitag', value: 'Freitag, 28.8.'}
+		{id: 'samstag', value: 'Samstag, 29.8.'}
+		{id: 'sonntag', value: 'Sonntag, 30.8.'}
+	]
+	abreise: [
+		{id: 'freitag', value: 'Freitag, 28.8.'}
+		{id: 'samstag', value: 'Samstag, 29.8.'}
+		{id: 'sonntag', value: 'Sonntag, 30.8.'}
+		{id: 'montag', value: 'Montag, 1.9.'}
+	]
+	abreiseDynamisch: (->
+		anreise = @get('model.bucher.anreise')
+		console.log anreise
+		return [] unless anreise
+
+		found = false
+		choice = []
+		for tag in @abreise
+			found = true if anreise is tag.id
+			choice.push tag if found
+
+		choice
+	).property 'model.bucher.anreise'
+
 	alter: [
 		{id: 1, value: '1 Jahr'}
 		{id: 2, value: '2 Jahre'}

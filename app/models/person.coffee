@@ -15,11 +15,15 @@ Person = DS.Model.extend
 
   istErwachsen: DS.attr 'boolean', defaultValue: true
   istBucher: DS.attr 'boolean', defaultValue: false
-  
+  reistZusammen: DS.attr 'boolean'
+
   istGruppe: DS.attr 'boolean'
   willBetreuen: DS.attr 'boolean'
 
   uebernachtung: DS.attr 'string'
+
+  anreise: DS.attr 'string'
+  abreise: DS.attr 'string'
 
 Person.reopenClass
 	FIXTURES: [{
