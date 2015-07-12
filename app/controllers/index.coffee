@@ -6,12 +6,7 @@ IndexController = Ember.ObjectController.extend
 		{id: 'samstag', value: 'Samstag, 29.8.'}
 		{id: 'sonntag', value: 'Sonntag, 30.8.'}
 	]
-	abreise: [
-		{id: 'freitag', value: 'Freitag, 28.8.'}
-		{id: 'samstag', value: 'Samstag, 29.8.'}
-		{id: 'sonntag', value: 'Sonntag, 30.8.'}
-		{id: 'montag', value: 'Montag, 1.9.'}
-	]
+
 	abreiseDynamisch: (->
 		anreise = @get('model.bucher.anreise')
 		console.log anreise
@@ -19,7 +14,7 @@ IndexController = Ember.ObjectController.extend
 
 		found = false
 		choice = []
-		for tag in @abreise
+		for tag in @anreise
 			found = true if anreise is tag.id
 			choice.push tag if found
 
