@@ -72,27 +72,26 @@
 								.col-sm-2.col-xs-3.form-group-sm
 									view "select" content=alter optionValuePath="content.id" optionLabelPath="content.value" class="form-control alter" value=person.alter prompt="Alter"
 
+					label style="margin-top:10px;" Interesse am Mithelfen?
+					.checkbox
+						label
+							=input type="checkbox" checked=model.bucher.gruppeHilft
+							' Wir suchen bis zu 10 Teilnehmer*innen, die bereits
+							b am Mittwoch (26.8.) anreisen 
+							' und Donnerstag mit aufbauen, Transparente malen etc. sowie während des Wochenendes helfend unterstützen.
+							' Kostenlose Teilnahme winkt! Hat ein Mitglied deiner Gruppe/Familie Interesse?
 
 					label style="margin-top:10px;" Anwesenheit beim Netzwerktreffen
 					.row
 						.col-sm-6.checkbox
 							label
-								=input type="checkbox" checked=model.bucher.reistZusammen
+								=input type="checkbox" checked=model.bucher.gruppeReist
 								| Wir reisen alle am gleichen Tag an und ab
-						if model.bucher.reistZusammen
+						if model.bucher.gruppeReist
 							.col-sm-3.col-xs-6
-								view "select" content=anreise optionValuePath="content.id" optionLabelPath="content.value" class="form-control" value=model.bucher.anreise prompt="Anreise am.."
+								view "select" content=anreiseDynamisch optionValuePath="content.id" optionLabelPath="content.value" class="form-control" value=model.bucher.anreise prompt="Anreise am.." disabled=model.bucher.gruppeHilft
 							.col-sm-3.col-xs-6
 								view "select" content=abreiseDynamisch optionValuePath="content.id" optionLabelPath="content.value" class="form-control" value=model.bucher.abreise prompt="Abreise am.."
-
-					label style="margin-top:10px;" Interesse am Mithelfen?
-					.checkbox
-						label
-							=input type="checkbox"
-							' Wir suchen bis zu 10 Teilnehmer*innen, die bereits
-							b am Mittwoch anreisen 
-							' und Donnerstag aufbauen, Transparente malen, putzen etc. sowie während des Wochenende helfend unterstützen.
-							' Kostenlose Teilnahme winkt! Hat ein Mitglied deiner Gruppe/Familie Interesse?
 
 					if gruppeHatKind
 						label style="margin-top:10px;" Kinderbetreuung während des Netzwerktreffens
