@@ -77,9 +77,10 @@
 						label
 							=input type="checkbox" checked=model.bucher.gruppeHilft
 							' Wir suchen bis zu 10 Teilnehmer*innen, die bereits
-							b am Mittwoch (26.8.) anreisen 
+							b class=hilfeClass am Mittwoch (26.8.) anreisen 
 							' und Donnerstag mit aufbauen, Transparente malen etc. sowie während des Wochenendes helfend unterstützen.
-							' Kostenlose Teilnahme winkt! Hat ein Mitglied deiner Gruppe/Familie Interesse?
+							' Kostenlose Teilnahme winkt!
+							b Möchte sich ein Mitglied deiner Gruppe/Familie dafür melden?
 
 					label style="margin-top:10px;" Anwesenheit beim Netzwerktreffen
 					.row
@@ -88,7 +89,7 @@
 								=input type="checkbox" checked=model.bucher.gruppeReist
 								| Wir reisen alle am gleichen Tag an und ab
 						if model.bucher.gruppeReist
-							.col-sm-3.col-xs-6
+							.col-sm-3.col-xs-6 class=hilfeClass
 								view "select" content=anreiseDynamisch optionValuePath="content.id" optionLabelPath="content.value" class="form-control" value=model.bucher.anreise prompt="Anreise am.." disabled=model.bucher.gruppeHilft
 							.col-sm-3.col-xs-6
 								view "select" content=abreiseDynamisch optionValuePath="content.id" optionLabelPath="content.value" class="form-control" value=model.bucher.abreise prompt="Abreise am.."

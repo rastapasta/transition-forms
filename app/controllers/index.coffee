@@ -8,6 +8,11 @@ IndexController = Ember.ObjectController.extend
 		{id: 'sonntag', value: 'Sonntag, 30.8.'}
 	]
 
+	hilfeClass: (->
+		if @get('model.bucher.gruppeHilft') and @get('model.bucher.gruppeReist')
+			'darkred'
+	).property 'model.bucher.gruppeHilft', 'model.bucher.gruppeReist'
+
 	gruppeHilft: (->
 		if @get 'model.bucher.gruppeHilft'
 			@set 'model.bucher.anreise', 'mittwoch'
