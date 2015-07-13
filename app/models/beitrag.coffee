@@ -35,8 +35,8 @@ Beitrag.reopenClass
 		istFlexibel: true
 		preis: 70
 	},{
-		id: 'helfer'
-		name: 'Kostenlos (für Helfer*innen)'
+		id: 'kostenlos'
+		name: 'Kostenlos (für Kinder und Helfer*innen)'
 		istHelfer: true
 		preis: 0
 	}]
