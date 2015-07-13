@@ -90,9 +90,9 @@
 								| Wir reisen alle am gleichen Tag an und ab
 						if model.bucher.gruppeReist
 							.col-sm-3.col-xs-6 class=hilfeClass
-								view "select" content=anreiseDynamisch optionValuePath="content.id" optionLabelPath="content.value" class="form-control" value=model.bucher.anreise prompt="Anreise am.." disabled=model.bucher.gruppeHilft
+								view "select" content=anreiseTage optionValuePath="content.id" optionLabelPath="content.value" class="form-control" value=model.bucher.anreise prompt="Anreise am.." disabled=model.bucher.gruppeHilft
 							.col-sm-3.col-xs-6
-								view "select" content=abreiseDynamisch optionValuePath="content.id" optionLabelPath="content.value" class="form-control" value=model.bucher.abreise prompt="Abreise am.."
+								view "select" content=abreiseTage optionValuePath="content.id" optionLabelPath="content.value" class="form-control" value=model.bucher.abreise prompt="Abreise am.."
 
 					if gruppeHatKind
 						label style="margin-top:10px;" Kinderbetreuung während des Netzwerktreffens

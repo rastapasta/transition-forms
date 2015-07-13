@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 
 IndexController = Ember.ObjectController.extend
-	anreise: [
+	tage: [
 		{id: 'mittwoch', value: 'Mittwoch, 26.8.', nurAnreise: true, nurHelfer: true}
 		{id: 'freitag', value: 'Freitag, 28.8.'}
 		{id: 'samstag', value: 'Samstag, 29.8.'}
@@ -18,23 +18,14 @@ IndexController = Ember.ObjectController.extend
 			@set 'model.bucher.anreise', 'mittwoch'
 	).observes 'model.bucher.gruppeHilft'
 
-	anreiseDynamisch: (->
-		(tag for tag in @anreise when not tag.nurHelfer or @get('model.bucher.gruppeHilft'))
+	anreiseTage: (->
+		tag for tag in @tage when not tag.nurHelfer or @get('model.bucher.gruppeHilft')
 	).property 'model.bucher.gruppeHilft'
 
-	abreiseDynamisch: (->
+	abreiseTage: (->
 		anreise = @get 'model.bucher.anreise'
-
-		return [] unless anreise
-
 		found = false
-		choice = []
-		for tag in @anreise
-			found = true if anreise is tag.id
-			if found and not tag.nurAnreise
-				choice.push tag if found
-
-		choice
+		tag for tag in @tage when (found ||= anreise is tag.id) and not tag.nurAnreise
 	).property 'model.bucher.anreise'
 
 	alter: [
