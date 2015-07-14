@@ -3,7 +3,6 @@
 Beitrag = DS.Model.extend
 	name: DS.attr 'string'
 	istReduziert: DS.attr 'boolean'
-	istHelfer: DS.attr 'boolean'
 	istFlexibel: DS.attr 'boolean'
 	preis: DS.attr 'number'
 	flexiblerPreis: DS.attr 'number', defaultValue: 70
@@ -37,7 +36,6 @@ Beitrag.reopenClass
 	},{
 		id: 'kostenlos'
 		name: 'Kostenlos (für Kinder und Helfer*innen)'
-		istHelfer: true
 		preis: 0
 	}]
 

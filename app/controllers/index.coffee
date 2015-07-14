@@ -14,6 +14,10 @@ IndexController = Ember.ObjectController.extend
 			value: alter+' Jahr'+ if alter > 1 then "e" else ""
 	).property()
 
+	canBeFree: (->
+		@get('model.bucher.gruppeHilft') or not @get('model.bucher.istErwachsen')
+	).property 'model.bucher.istErwachsen', 'model.bucher.gruppeHilft'
+
 	hilfeClass: (->
 		'darkred' if @get('model.bucher.gruppeHilft') and @get('model.bucher.gruppeReist')
 	).property 'model.bucher.gruppeHilft', 'model.bucher.gruppeReist'

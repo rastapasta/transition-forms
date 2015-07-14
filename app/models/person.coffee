@@ -21,6 +21,7 @@ Person = DS.Model.extend
 
   istGruppe: DS.attr 'boolean'
   willBetreuen: DS.attr 'boolean'
+  willHelfen: DS.attr 'boolean'
 
   uebernachtung: DS.attr 'string'
 

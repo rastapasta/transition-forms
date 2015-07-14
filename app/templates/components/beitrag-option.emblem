@@ -1,9 +1,11 @@
 .radio.row class=activeClass
 	.col-sm-9.col-sm-offset-1
 		label style="white-space:nowrap;"
-			radio-button value=beitrag.id checked=current
+			radio-button value=beitrag.id checked=current disabled=isDisabled
 			.preis
-				if beitrag.preis
+				unless beitrag.preis
+					small kostenlos
+				else
 					| {{beitrag.aktuellerPreis}} &euro;
 					
 					if beitrag.istFlexibel
@@ -15,15 +17,12 @@
 							small wählbar
 					else
 						small insgesamt
-				else
-					small kostenlos
 
 			if showSlider
-				div style="width:40%;margin-left:90px;float:right;position:absolute;"
+				div.slider
 					range-slider connect="lower" start=beitrag.flexiblerPreis min=70 step=10 max=250 slide="slided"
 
 			' <b>{{beitrag.name}}</b>
-
 
 			if beitrag.info
 				| (#{beitrag.info})

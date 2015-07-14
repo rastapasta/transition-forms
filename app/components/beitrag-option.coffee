@@ -9,8 +9,11 @@ BeitragOption = Ember.Component.extend
 			@set 'beitrag.flexiblerPreis', Math.floor v
 
 	isDisabled: (->
-		true
-	).property()
+		if @get('beitrag.preis') is 0
+			if @get('canBeFree') then false else true
+		else
+			if @get('canBeFree') then true else false
+	).property 'canBeFree'
 
 	heartStyle: (->
 		red = Math.floor 255*(@get('beitrag.aktuellerPreis')-70)/180

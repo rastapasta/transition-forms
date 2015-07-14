@@ -128,15 +128,19 @@
 						| Hiermit meldest du <b>dich persönlich</b> zum Netzwerktreffen zu folgenden Konditionen an:
 
 					each beitrag in beitraege
-						beitrag-option beitrag=beitrag current=model.bucher.beitrag
+						beitrag-option beitrag=beitrag current=model.bucher.beitrag canBeFree=canBeFree
 
-					p style="margin-top:20px;"
-						' Bitte habe Verständnis, dass wir der Einfachheit halber uns bei der Anmeldung
-						' auf diese drei Preise reduzieren und keine Tagespreise anbieten. Wie Ihr seht,
-						' sind Sie ohnehin sehr niedrig kalkuliert. Wenn es trotzdem finanzielle
-						' Schwierigkeiten bereiten sollte, setze Dich bitte direkt mit uns in
-						' Verbindung (Kontaktdaten siehe oben).
-
+					if canBeFree
+						p style="margin-top:20px;"
+							' Helfer*innen und Kinder <i>(jünger als 18 Jahre)</i> können am Netzwerktreffen
+							' <b>kostenlos</b> teilnehmen!
+					else
+						p style="margin-top:20px;"
+							' Bitte habe Verständnis, dass wir der Einfachheit halber uns bei der Anmeldung
+							' auf diese drei Preise reduzieren und keine Tagespreise anbieten. Wie Ihr seht,
+							' sind Sie ohnehin sehr niedrig kalkuliert. Wenn es trotzdem finanzielle
+							' Schwierigkeiten bereiten sollte, setze Dich bitte direkt mit uns in
+							' Verbindung (Kontaktdaten siehe oben).
 
 			em-tab-panel
 				.uebernachtung
