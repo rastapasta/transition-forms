@@ -130,7 +130,7 @@
 					each beitrag in beitraege
 						beitrag-option beitrag=beitrag current=model.bucher.beitrag
 
-					p style="margin-top:10px;"
+					p style="margin-top:20px;"
 						' Bitte habe Verständnis, dass wir der Einfachheit halber uns bei der Anmeldung
 						' auf diese drei Preise reduzieren und keine Tagespreise anbieten. Wie Ihr seht,
 						' sind Sie ohnehin sehr niedrig kalkuliert. Wenn es trotzdem finanzielle
