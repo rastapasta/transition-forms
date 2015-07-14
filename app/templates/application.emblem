@@ -20,8 +20,8 @@
 		br
 	outlet
 
-div style="position:fixed;background-color:#fff;bottom:0;width:100%;height:20px;border-top:1px solid #ccc;font-size:8pt;text-align:center;"
+div style="position:fixed;background-color:#fff;bottom:0;width:100%;height:20px;border-top:1px solid #ccc;font-size:80%;text-align:center;"
 	' made with
 	i.glyphicon.glyphicon-heart
 	'  in <a href="https://www.transition-regensburg.de/">Transition Town Regensburg</a> - published as 
-	' <a href="https://github.com/rastapasta/transition-forms/">open source</a> - enjoy and reuse!
+	' <a href="https://github.com/rastapasta/transition-forms/">open source</a>

@@ -1,3 +1,4 @@
+hr style="margin:0 0 10px 0;"
 .uebernachtung
 	label.row style="font-size:120%;" Übernachtung beim Netzwerktreffen
 	each unterkunft in unterkuenfte

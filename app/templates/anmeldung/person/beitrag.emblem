@@ -1,5 +1,8 @@
+hr style="margin:0 0 10px 0;"
 .beitrag
-	label.row style="font-size:120%;padding-left:15px;" Teilnahmebeitrag
+	label style="font-size:120%;padding-left:0px;padding-right:0;display:block;"
+		div.darkred style="float:right;" für #{person.name}
+		| Teilnahmebeitrag
 	p
 		' Im Teilnahmebeitrag inbegriffen ist leckere vegane und vegetarische
 		' Verpflegung von <a href="http://www.wamkat.de/" target="_new">WamKat</a> über das gesamte Wochenende hinweg.

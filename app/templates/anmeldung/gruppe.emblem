@@ -1,3 +1,4 @@
+hr style="margin:0 0 10px 0;"
 .mitglieder
 	label style="font-size:120%;" Familien- bzw. Gruppenmitglieder
 	each person in model.gruppe
