@@ -16,12 +16,13 @@ AnmeldungGruppeController = Ember.ObjectController.extend
 
 	forwardDisabled: (->
 		return true if @get('model.gruppe.length') < 3
+		return true if @get('model.bucher.gruppeReist') and (not @get('model.bucher.anreise') or not @get('model.bucher.abreise'))
 
 		childWithoutAge = false
 		@get('model.gruppe').forEach (person) ->
 			return childWithoutAge = true if person.get('name') and not person.get('istErwachsen') and not person.get('alter')
 		childWithoutAge
-	).property 'model.gruppe.length', 'model.gruppe.@each.istErwachsen', 'model.gruppe.@each.alter'
+	).property 'model.gruppe.length', 'model.gruppe.@each.istErwachsen', 'model.gruppe.@each.alter', 'model.bucher.gruppeReist', 'model.bucher.anreise', 'model.bucher.abreise'
 
 	hilfeClass: (->
 		'darkred' if @get('model.bucher.gruppeHilft') and @get('model.bucher.gruppeReist')
