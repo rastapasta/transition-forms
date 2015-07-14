@@ -14,7 +14,14 @@ AnmeldungGruppeController = Ember.ObjectController.extend
 			value: alter+' Jahr'+ if alter > 1 then "e" else ""
 	).property()
 
-	forwardDisabled: Ember.computed.lt 'model.gruppe.length', 3
+	forwardDisabled: (->
+		return true if @get('model.gruppe.length') < 3
+
+		childWithoutAge = false
+		@get('model.gruppe').forEach (person) ->
+			return childWithoutAge = true if person.get('name') and not person.get('istErwachsen') and not person.get('alter')
+		childWithoutAge
+	).property 'model.gruppe.length', 'model.gruppe.@each.istErwachsen', 'model.gruppe.@each.alter'
 
 	hilfeClass: (->
 		'darkred' if @get('model.bucher.gruppeHilft') and @get('model.bucher.gruppeReist')
