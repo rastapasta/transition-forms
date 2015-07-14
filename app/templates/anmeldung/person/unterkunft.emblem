@@ -1,6 +1,6 @@
 .uebernachtung
 	label.row style="font-size:120%;" Übernachtung beim Netzwerktreffen
-	each unterkunft in model.unterkuenfte
+	each unterkunft in unterkuenfte
 		unterkunft-option unterkunft=unterkunft current=person.unterkunft
 
 	a.btn.btn-success style="float:right;" disabled=forwardDisabled

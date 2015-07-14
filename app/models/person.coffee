@@ -33,6 +33,8 @@ Person.reopenClass
 		id: 1
 		istBucher: true
 		name: 'Maxi Musterfrau'
+	},{
+		id: 'fixture-0'
 	}]
 
 `export default Person`
