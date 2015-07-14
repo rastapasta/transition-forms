@@ -4,7 +4,7 @@
 			radio-button value=beitrag.id checked=current disabled=isDisabled
 			.preis
 				unless beitrag.preis
-					small kostenlos
+					small style="margin-top:1px;" kostenlos
 				else
 					| {{beitrag.aktuellerPreis}} &euro;
 					

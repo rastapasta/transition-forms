@@ -1,0 +1,13 @@
+.uebernachtung
+	label.row Übernachtung beim Netzwerktreffen
+	each unterkunft in model.unterkuenfte
+		unterkunft-option unterkunft=unterkunft current=model.person.unterkunft
+
+	a.btn.btn-success style="float:right;"
+		| Weiter 
+		i.glyphicon.glyphicon-chevron-right
+
+	link-to "anmeldung.person.beitrag" model.person.id
+		button.btn.btn-default
+			i.glyphicon.glyphicon-chevron-left
+			|  Zurück

@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-IndexController = Ember.ObjectController.extend
+AnmeldungGruppeController = Ember.ObjectController.extend
 	tage: [
 		{id: 'mittwoch', value: 'Mittwoch, 26.8.', nurAnreise: true, nurHelfer: true}
 		{id: 'freitag', value: 'Freitag, 28.8.'}
@@ -13,10 +13,6 @@ IndexController = Ember.ObjectController.extend
 			id: alter
 			value: alter+' Jahr'+ if alter > 1 then "e" else ""
 	).property()
-
-	canBeFree: (->
-		@get('model.bucher.gruppeHilft') or not @get('model.bucher.istErwachsen')
-	).property 'model.bucher.istErwachsen', 'model.bucher.gruppeHilft'
 
 	hilfeClass: (->
 		'darkred' if @get('model.bucher.gruppeHilft') and @get('model.bucher.gruppeReist')
@@ -36,10 +32,6 @@ IndexController = Ember.ObjectController.extend
 		found = false
 		tag for tag in @tage when (found ||= anreise is tag.id) and not tag.nurAnreise
 	).property 'model.bucher.anreise'
-
-	showUebernachtung: (->
-		@get('model.bucher.istGruppe') is false
-	).property 'model.bucher.istGruppe'
 
 	gruppeHatKind: (->
 		hatKind = false
@@ -63,4 +55,4 @@ IndexController = Ember.ObjectController.extend
 
 	).observes 'model.gruppe.@each.name'
 
-`export default IndexController`
+`export default AnmeldungGruppeController`

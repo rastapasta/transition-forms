@@ -1,0 +1,65 @@
+.mitglieder
+	label Familien- bzw. Gruppenmitglieder
+	each person in model.gruppe
+		.row
+			.form-group.col-sm-6.col-xs-12
+				.input-group
+					span.input-group-addon: i.glyphicon.glyphicon-user
+					=input class="form-control" placeholder="Vor- & Nachname" value=person.name disabled=person.istBucher
+			.col-sm-3.col-xs-6: .radio
+				label
+					radio-button value=true checked=person.istErwachsen disabled=person.istBucher
+					| Erwachsen
+			.col-sm-1.col-xs-3: .radio style="margin-left:-15px;"
+				label
+					radio-button value=false checked=person.istErwachsen disabled=person.istBucher
+					| Kind
+			unless person.istErwachsen
+				.col-sm-2.col-xs-3.form-group-sm
+					view "select" content=alter optionValuePath="content.id" optionLabelPath="content.value" class="form-control alter" value=person.alter prompt="Alter"
+
+	label style="margin-top:10px;" Interesse am Mithelfen?
+	.checkbox
+		label
+			=input type="checkbox" checked=model.bucher.gruppeHilft
+			' Wir suchen bis zu 10 Teilnehmer*innen, die bereits
+			b class=hilfeClass am Mittwoch (26.8.) anreisen 
+			' und Donnerstag mit aufbauen, Transparente malen etc. sowie während des Wochenendes helfend unterstützen.
+			' Kostenlose Teilnahme winkt!
+			b Möchte sich ein Mitglied deiner Gruppe/Familie dafür melden?
+
+	label style="margin-top:10px;" Anwesenheit beim Netzwerktreffen
+	.row
+		.col-sm-6.checkbox
+			label
+				=input type="checkbox" checked=model.bucher.gruppeReist
+				| Wir reisen alle am gleichen Tag an und ab
+		if model.bucher.gruppeReist
+			.col-sm-3.col-xs-6 class=hilfeClass
+				view "select" content=anreiseTage optionValuePath="content.id" optionLabelPath="content.value" class="form-control" value=model.bucher.anreise prompt="Anreise am.." disabled=model.bucher.gruppeHilft
+			.col-sm-3.col-xs-6
+				view "select" content=abreiseTage optionValuePath="content.id" optionLabelPath="content.value" class="form-control" value=model.bucher.abreise prompt="Abreise am.."
+
+	if gruppeHatKind
+		label style="margin-top:10px;" Kinderbetreuung während des Netzwerktreffens
+		.checkbox
+			label
+				=input type="checkbox" checked=model.bucher.willBetreuen
+				| Ich möchte mich an der selbstorganisierten Kinderbetreuung beteiligen
+
+
+		p style="margin-top:10px;"
+			| Wir freuen uns sehr, wenn Familien mit Kindern am Transition‐Netzwerktreffen teilnehmen! 
+
+		p
+			' Wir haben uns allerdings entschieden, unsererseits keine Kinderbetreuung anzubieten. Denn
+			' eine pädagogisch sinnvolle Kinderbetreuung erzeugt auch Kosten, und wir wollen die
+			' Teilnahme am Netzwerktreffen so günstig wie möglich machen. Gerne unterstützen wir euch
+			' aber bei der Planung und der Vernetzung mit anderen Eltern, so dass ihr euch untereinander
+			' absprechen könnt.
+
+
+	link-to "anmeldung.person.beitrag" 1
+		button.btn.btn-success style="float:right;margin-top:10px"
+			| Weiter 
+			i.glyphicon.glyphicon-chevron-right

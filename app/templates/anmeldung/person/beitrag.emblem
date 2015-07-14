@@ -1,0 +1,41 @@
+.beitrag
+	label style="font-size:120%;" Teilnahmebeitrag
+	p
+		' Im Teilnahmebeitrag inbegriffen ist leckere vegane und vegetarische
+		' Verpflegung von WamKat über das gesamte Wochenende hinweg.
+
+	p style="margin-bottom:20px;"
+		' Hiermit meldest du
+
+		if person.istBucher
+			b dich persönlich 
+		else
+			b.darkred #{person.name} 
+
+		' zum Netzwerktreffen zu folgenden Konditionen an:
+
+	each beitrag in model.beitraege
+		beitrag-option beitrag=beitrag current=person.beitrag canBeFree=canBeFree
+
+	if canBeFree
+		p style="margin-top:20px;"
+			' Helfer*innen und Kinder (jünger als 18 Jahre) können am Netzwerktreffen
+			' <b>kostenlos</b> teilnehmen!
+	else
+		p style="margin-top:20px;"
+			' Bitte habe Verständnis, dass wir der Einfachheit halber uns bei der Anmeldung
+			' auf diese drei Preise reduzieren und keine Tagespreise anbieten. Wie Ihr seht,
+			' sind Sie ohnehin sehr niedrig kalkuliert. Wenn es trotzdem finanzielle
+			' Schwierigkeiten bereiten sollte, setze Dich bitte direkt mit uns in
+			' Verbindung (Kontaktdaten siehe oben).
+
+	link-to "anmeldung.person.unterkunft" model.person.id
+		button.btn.btn-success style="float:right;"
+			| Weiter 
+			i.glyphicon.glyphicon-chevron-right
+
+	if canGoBack
+		link-to "anmeldung.gruppe"
+			button.btn.btn-default
+				i.glyphicon.glyphicon-chevron-left
+				|  Zurück

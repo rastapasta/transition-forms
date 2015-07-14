@@ -2,9 +2,15 @@
 `import config from './config/environment'`
 
 Router = Ember.Router.extend
-  location: config.locationType
+	location: config.locationType
 
 
 Router.map ->
+	@route 'anmeldung', path: '/', ->
+		@route 'gruppe'
+
+		@route 'person', path: '/person/:person_id', ->
+			@route 'beitrag'
+			@route 'unterkunft'
 
 `export default Router`
