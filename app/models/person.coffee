@@ -23,7 +23,7 @@ Person = DS.Model.extend
   willBetreuen: DS.attr 'boolean'
   willHelfen: DS.attr 'boolean'
 
-  uebernachtung: DS.attr 'string'
+  unterkunft: DS.attr 'string'
 
   anreise: DS.attr 'string'
   abreise: DS.attr 'string'

@@ -1,5 +1,5 @@
 .mitglieder
-	label Familien- bzw. Gruppenmitglieder
+	label style="font-size:120%;" Familien- bzw. Gruppenmitglieder
 	each person in model.gruppe
 		.row
 			.form-group.col-sm-6.col-xs-12
@@ -60,6 +60,6 @@
 
 
 	link-to "anmeldung.person.beitrag" 1
-		button.btn.btn-success style="float:right;margin-top:10px"
+		button.btn.btn-success style="float:right;margin-top:10px" disabled=forwardDisabled
 			| Weiter 
 			i.glyphicon.glyphicon-chevron-right

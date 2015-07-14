@@ -30,7 +30,7 @@
 			' Verbindung (Kontaktdaten siehe oben).
 
 	link-to "anmeldung.person.unterkunft" model.person.id
-		button.btn.btn-success style="float:right;"
+		button.btn.btn-success style="float:right;" disabled=forwardDisabled
 			| Weiter 
 			i.glyphicon.glyphicon-chevron-right
 

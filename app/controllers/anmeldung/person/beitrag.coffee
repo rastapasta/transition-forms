@@ -9,4 +9,6 @@ AnmeldungPersonBeitragController = Ember.ObjectController.extend
 		@get('model.person.istGruppe') or @get('model.person.id') isnt '1'
 	).property 'model.person.istGruppe', 'model.person.id'
 
+	forwardDisabled: Ember.computed.empty 'model.person.beitrag'
+
 `export default AnmeldungPersonBeitragController`
