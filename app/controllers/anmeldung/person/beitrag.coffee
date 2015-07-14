@@ -5,9 +5,7 @@ AnmeldungPersonBeitragController = Ember.ObjectController.extend
 		@get('model.person.willHelfen') or not @get('model.person.istErwachsen')
 	).property 'model.person.istErwachsen', 'model.person.willHelfen'
 
-	canGoBack: (->
-		@get('model.person.istGruppe') or @get('model.person.id') isnt '1'
-	).property 'model.person.istGruppe', 'model.person.id'
+	canGoBack: Ember.computed.alias 'model.person.istInGruppe'
 
 	forwardDisabled: Ember.computed.empty 'model.person.beitrag'
 

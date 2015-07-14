@@ -28,6 +28,10 @@ Person = DS.Model.extend
   anreise: DS.attr 'string'
   abreise: DS.attr 'string'
 
+  istInGruppe: (->
+  	@get('istGruppe') or @get('id') isnt '1'
+  ).property 'id', 'istGruppe'
+
 Person.reopenClass
 	FIXTURES: [{
 		id: 1
