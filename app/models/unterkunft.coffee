@@ -12,7 +12,7 @@ Unterkunft = DS.Model.extend
 Unterkunft.reopenClass
 	FIXTURES: [{
 		id: 'attac'
-		name: 'attac-Villa oder Nachbar-Villa'
+		name: 'attac- oder Nachbar-Villa'
 		info: 'in Doppel- bis Mehrbettzimmern'
 		plaetze: 1
 		preis: 10
@@ -48,7 +48,7 @@ Bitte sorge selbst für entsprechende Ausrüstung wie Zelt, Schlafsack usw.
 '
 	},{
 		id: 'wohnmobil'
-		name: 'Wohnmobilstellplatz auf dem Parkplatz'
+		name: 'Wohnmobil auf dem Parkplatz'
 		plaetze: 1
 		preis: 5
 		achtung: 'Wir weisen darauf hin, dass die Duschmöglichkeiten begrenzt sind.'

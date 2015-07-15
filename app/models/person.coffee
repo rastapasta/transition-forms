@@ -23,13 +23,14 @@ Person = DS.Model.extend
   willBetreuen: DS.attr 'boolean'
   willHelfen: DS.attr 'boolean'
 
-  unterkunft: DS.belongsTo 'unterkunft', inverse: false
-  unterkunftMit: DS.hasMany 'person', inverse: false
+  unterkunft: DS.belongsTo 'unterkunft', async: true,  inverse: false
+  unterkunftMit: DS.hasMany 'person', inverse: 'schlaeftBei'
+  schlaeftBei: DS.belongsTo 'person', inverse: 'unterkunftMit'
 
   anreise: DS.attr 'string'
   abreise: DS.attr 'string'
 
-  beitrag: DS.belongsTo 'beitrag', inverse: false
+  beitrag: DS.belongsTo 'beitrag', async: true, inverse: false
 
   istInGruppe: (->
   	@get('istGruppe') or @get('id') isnt '1'
@@ -52,7 +53,7 @@ Person.reopenClass
 	FIXTURES: [{
 		id: 1
 		istBucher: true
-		name: 'Maxi Musterfrau'
+		name: 'Alex Bert'
 		initiative: 'Transition Musterstadt'
 		strasse: 'Maximilianstrasse'
 		hausnummer: '1'
@@ -61,13 +62,19 @@ Person.reopenClass
 		land: 'Deutschland'
 		email: 'test@test.de'
 		telefon: '0123 - 12345'
-		istGruppe: 1
+		beitrag: 'normal'
+		unterkunft: 'doppelzimmer'
+		unterkunftMit: ['a']
+		istGruppe: true
 	},{
 		id: 'a'
-		name: 'Person Zwei'
+		name: 'Kim Dreit'
+		beitrag: 'soli'
 	},{
 		id: 'b'
-		name: 'Person Drei'
+		name: 'Anna Janna'
+		beitrag: 'soli'
+		unterkunft: 'wohnmobil'
 	},{
 		id: 'c'
 		name: ''

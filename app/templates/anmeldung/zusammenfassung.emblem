@@ -29,17 +29,62 @@ hr style="margin:0 0 10px 0;"
 
 .row style="margin-top:10px;min-height:210px;"
 	fieldset.col-sm-12
-		legend Unterkunft und Teilnahmebeitrag
+		legend
+			if model.bucher.istGruppe
+				| Unterkünfte und Teilnahmebeiträge
+			else			
+				| Unterkunft und Teilnahmebeitrag
 
 		table.table
-			each beitrag in beitraege
+			tbody style="border:0;"
+
+
+				each beitrag in beitraege
+					tr
+						td width="20" #{beitrag.count}x
+						td
+							beitrag.beitrag.name
+						td style="white-space:nowrap;"
+							if model.bucher.istGruppe
+								each person in beitrag.personen
+									person.name
+									br						
+						td.text-right style="white-space:nowrap;"
+							if beitrag.multiple
+								if beitrag.beitrag.aktuellerPreis
+									| á #{beitrag.beitrag.aktuellerPreis} &euro;
+						td.text-right style="white-space:nowrap;" #{beitrag.summe} &euro;
+				
+
+
+				if model.bucher.istGruppe
+					tr
+						td colspan="5"
+							hr style="margin:0;"
+
+
+
+				each unterkunft in unterkuenfte
+					tr
+						td #{unterkunft.count}x
+						td
+							unterkunft.unterkunft.name
+						td
+							if model.bucher.istGruppe
+								each person in unterkunft.personen
+									person.name
+									br
+						td.text-right á #{unterkunft.unterkunft.preis} &euro;
+						td.text-right #{unterkunft.summe} &euro;
+
 				tr
-					td #{beitrag.count}x
-					td
-						beitrag.name
-					td
-						| Name Name Name Name
-					td #{beitrag.summe} &euro;
+					td colspan="5"
+						hr style="margin:0;"
+				tr
+					td colspan="3"
+					td.text-right: strong Auf Dich zukommende Kosten:
+					td.text-right: strong #{summe} &euro;
+				
 
 link-to "anmeldung.zusammenfassung"
 	button.btn.btn-danger.pull-right disabled=forwardDisabled

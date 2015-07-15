@@ -12,7 +12,7 @@ Beitrag = DS.Model.extend
 			@get 'flexiblerPreis'
 		else
 			@get 'preis'
-	).property 'flexiblerPreis'
+	).property 'preis', 'flexiblerPreis'
 
 	individualPreis: (->
 		@get('flexiblerPreis') > @get('preis') 
@@ -35,7 +35,8 @@ Beitrag.reopenClass
 		preis: 70
 	},{
 		id: 'kostenlos'
-		name: 'Kostenlos (für Kinder und Helfer*innen)'
+		name: 'Kostenlos'
+		info: 'für Kinder und Helfer*innen'
 		preis: 0
 	}]
 
