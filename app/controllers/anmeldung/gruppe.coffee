@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-AnmeldungGruppeController = Ember.ObjectController.extend
+AnmeldungGruppeController = Ember.Controller.extend
 	tage: [
 		{id: 'mittwoch', value: 'Mittwoch, 26.8.', nurAnreise: true, nurHelfer: true}
 		{id: 'freitag', value: 'Freitag, 28.8.'}

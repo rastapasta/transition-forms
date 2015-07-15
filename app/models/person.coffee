@@ -29,7 +29,7 @@ Person = DS.Model.extend
   anreise: DS.attr 'string'
   abreise: DS.attr 'string'
 
-  beitrag: DS.belongsTo 'beitrag'
+  beitrag: DS.belongsTo 'beitrag', inverse: false
 
   istInGruppe: (->
   	@get('istGruppe') or @get('id') isnt '1'
@@ -62,7 +62,6 @@ Person.reopenClass
 		email: 'test@test.de'
 		telefon: '0123 - 12345'
 		istGruppe: 1
-		beitrag: 'normal'
 	},{
 		id: 'a'
 		name: 'Person Zwei'

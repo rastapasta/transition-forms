@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-AnmeldungPersonUnterkunftController = Ember.ObjectController.extend
+AnmeldungPersonUnterkunftController = Ember.Controller.extend
 	forwardDisabled: (->
 		if @get('model.person.unterkunft') then null else true
 	).property 'model.person.unterkunft'

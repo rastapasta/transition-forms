@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-AnmeldungPersonBeitragController = Ember.ObjectController.extend
+AnmeldungPersonBeitragController = Ember.Controller.extend
 	canBeFree: (->
 		@get('model.person.willHelfen') or not @get('model.person.istErwachsen')
 	).property 'model.person.istErwachsen', 'model.person.willHelfen'

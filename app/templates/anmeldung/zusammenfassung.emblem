@@ -31,6 +31,15 @@ hr style="margin:0 0 10px 0;"
 	fieldset.col-sm-12
 		legend Unterkunft und Teilnahmebeitrag
 
+		table.table
+			each beitrag in beitraege
+				tr
+					td #{beitrag.count}x
+					td
+						beitrag.name
+					td
+						| Name Name Name Name
+					td #{beitrag.summe} &euro;
 
 link-to "anmeldung.zusammenfassung"
 	button.btn.btn-danger.pull-right disabled=forwardDisabled

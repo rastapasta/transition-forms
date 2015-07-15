@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-AnmeldungController = Ember.ObjectController.extend
+AnmeldungController = Ember.Controller.extend
 	gruppenChange: (->
 		switch @get 'model.istGruppe'
 			when true then @transitionToRoute 'anmeldung.gruppe'

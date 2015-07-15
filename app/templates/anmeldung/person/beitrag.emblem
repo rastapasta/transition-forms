@@ -19,7 +19,7 @@ hr style="margin:0 0 10px 0;"
 		' zum Netzwerktreffen zu folgenden Konditionen an:
 
 	each beitrag in model.beitraege
-		beitrag-option beitrag=beitrag current=person.beitrag canBeFree=canBeFree
+		beitrag-option beitrag=beitrag person=model.person canBeFree=canBeFree
 
 	if canBeFree
 		p style="margin-top:20px;"

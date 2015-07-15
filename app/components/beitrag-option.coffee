@@ -21,8 +21,8 @@ BeitragOption = Ember.Component.extend
 	).property 'beitrag.aktuellerPreis'
 
 	isActive: (->
-		@get('current') is @get('beitrag')
-	).property 'current'
+		@get('person.beitrag') is @get('beitrag')
+	).property 'person.beitrag'
 
 	showSlider: (->
 		@get('beitrag.istFlexibel') and @get('isActive')

@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
 Adapter = DS.FixtureAdapter.extend
-	simulateRemoteResponse: true
+	simulateRemoteResponse: false
 
 `export default Adapter`
