@@ -1,8 +1,8 @@
 hr style="margin:0 0 10px 0;"
 .uebernachtung
-	label style="font-size:120%;margin-left:-15px;padding-left:0px;padding-right:0;display:block;"
+	label.row style="font-size:120%;padding-left:0px;padding-right:0;display:block;"
 		if person.istInGruppe
-			div.darkred.pull-right für #{person.name}
+			div.darkred.pull-right style="margin-right:-20px;" für #{person.name}
 		| Übernachtung beim Netzwerktreffen
 	each unterkunft in unterkuenfte
 		unterkunft-option gruppe=gruppe unterkunft=unterkunft person=person cosleeping=cosleepingOptionen

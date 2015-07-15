@@ -20,6 +20,7 @@ AnmeldungPersonUnterkunftController = Ember.ObjectController.extend
 	cosleepingOptionen: (->
 		personen = []
 		@get('model.gruppe').forEach (person) =>
+			return if person.get('name') is ""
 			if not person.get('unterkunft') and person.get('id') isnt @get('model.person.id')
 				personen.push person
 		personen
