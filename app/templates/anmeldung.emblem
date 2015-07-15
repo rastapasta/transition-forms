@@ -33,10 +33,12 @@
 				.radio style="margin-top:5px;"
 					label
 						radio-button value=false checked=model.istGruppe
-						| Ich melde nur mich persönlich an
+						/| Ich melde nur mich persönlich an
+						| Persönliche Anmeldung
 			.col-sm-6
 				.radio style="margin-top:5px;"
 					label
 						radio-button value=true checked=model.istGruppe
-						| Dies ist eine Familien-/Gruppenanmeldung
+						/| Dies ist eine Familien-/Gruppenanmeldung
+						| Familien-/Gruppenanmeldung
 		outlet

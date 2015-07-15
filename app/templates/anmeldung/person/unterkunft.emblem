@@ -7,9 +7,10 @@ hr style="margin:0 0 10px 0;"
 	each unterkunft in unterkuenfte
 		unterkunft-option unterkunft=unterkunft current=person.unterkunft
 
-	a.btn.btn-success.pull-right disabled=forwardDisabled
-		| Weiter 
-		i.glyphicon.glyphicon-chevron-right
+	link-to "anmeldung.zusammenfassung"
+		button.btn.btn-success.pull-right disabled=forwardDisabled
+			| Weiter 
+			i.glyphicon.glyphicon-chevron-right
 
 	link-to "anmeldung.person.beitrag" model.person.id
 		button.btn.btn-default

@@ -23,10 +23,13 @@ Person = DS.Model.extend
   willBetreuen: DS.attr 'boolean'
   willHelfen: DS.attr 'boolean'
 
-  unterkunft: DS.attr 'string'
+  unterkunft: DS.belongsTo 'unterkunft'
+  unterkunftMit: DS.belongsTo 'person'
 
   anreise: DS.attr 'string'
   abreise: DS.attr 'string'
+
+  beitrag: DS.belongsTo 'beitrag'
 
   istInGruppe: (->
   	@get('istGruppe') or @get('id') isnt '1'

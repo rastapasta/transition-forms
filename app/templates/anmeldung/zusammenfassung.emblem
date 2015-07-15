@@ -1,27 +1,46 @@
 hr style="margin:0 0 10px 0;"
-.beitrag
-label style="font-size:120%;padding-left:0px;padding-right:0;display:block;"
-	| Zusammenfassung deiner Anmeldung
-
+/label style="font-size:120%;padding-left:0px;padding-right:0;display:block;"
+/	| Zusammenfassung deiner Anmeldung
 .row
 	fieldset.col-sm-6.col-xs-6
 		legend Deine Anschrift
-		model.bucher.name
-		br
-		| #{model.bucher.strasse} #{model.bucher.hausnummer}
-		br
-		| #{model.bucher.plz} #{model.bucher.ort}
-		br
-		model.bucher.land
+		i.glyphicon.glyphicon-user.pull-left
+		div style="margin-left:25px;"
+			model.bucher.name
+
+		i.glyphicon.glyphicon-home.pull-left
+		div style="margin-left:25px;"
+			| #{model.bucher.strasse} #{model.bucher.hausnummer}
+			br
+			| #{model.bucher.plz} #{model.bucher.ort}
+			br
+			model.bucher.land
 	fieldset.col-sm-6.col-xs-6
-		legend Kontakt mit Dir
+		legend Deine Kontaktdaten
 		i.glyphicon.glyphicon-envelope style="margin-right: 10px;"
 		model.bucher.email
 		br
 		i.glyphicon.glyphicon-earphone style="margin-right: 10px;"
 		model.bucher.telefon
+		br
+		br
+		i.glyphicon.glyphicon-leaf style="margin-right: 10px;"
+		model.bucher.initiative
 
-.row
+.row style="margin-top:10px;min-height:210px;"
 	fieldset.col-sm-12
-		legend Unterkunft und Teilnahmebetrag
-		
+		legend Unterkunft und Teilnahmebeitrag
+
+
+link-to "anmeldung.zusammenfassung"
+	button.btn.btn-danger.pull-right disabled=forwardDisabled
+		if model.bucher.istGruppe
+			' Gruppe verbindlich anmelden
+		else
+			' Verbindlich anmelden
+		i.glyphicon.glyphicon-play
+
+link-to "anmeldung.person.beitrag" model.person.id
+	button.btn.btn-default
+		i.glyphicon.glyphicon-chevron-left
+		|  Zurück

@@ -1,7 +1,7 @@
 .radio.row class=activeClass
 	.col-sm-9.col-sm-offset-1
 		label.text-nowrap
-			radio-button value=beitrag.id checked=current disabled=isDisabled
+			radio-button value=beitrag checked=current disabled=isDisabled
 			.preis
 				unless beitrag.preis
 					small style="margin-top:1px;" kostenlos
