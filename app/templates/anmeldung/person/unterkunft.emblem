@@ -5,7 +5,7 @@ hr style="margin:0 0 10px 0;"
 			div.darkred.pull-right für #{person.name}
 		| Übernachtung beim Netzwerktreffen
 	each unterkunft in unterkuenfte
-		unterkunft-option unterkunft=unterkunft current=person.unterkunft
+		unterkunft-option gruppe=gruppe unterkunft=unterkunft person=person cosleeping=cosleepingOptionen
 
 	link-to "anmeldung.zusammenfassung"
 		button.btn.btn-success.pull-right disabled=forwardDisabled

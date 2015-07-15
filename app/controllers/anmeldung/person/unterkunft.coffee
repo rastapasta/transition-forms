@@ -17,4 +17,16 @@ AnmeldungPersonUnterkunftController = Ember.ObjectController.extend
 		unterkuenfte
 	).property 'model.unterkuenfte.[]'
 
+	cosleepingOptionen: (->
+		personen = []
+		@get('model.gruppe').forEach (person) =>
+			if not person.get('unterkunft') and person.get('id') isnt @get('model.person.id')
+				personen.push person
+		personen
+	).property 'model.gruppe.@each.unterkunft'
+
+	cosleepingReset: (->
+		@set 'model.person.unterkunftMit', []
+	).observes 'model.person.unterkunft'
+
 `export default AnmeldungPersonUnterkunftController`

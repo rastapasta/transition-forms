@@ -7,6 +7,8 @@ Unterkunft = DS.Model.extend
 	preis: DS.attr 'number'
 	achtung: DS.attr 'string'
 
+	moreThanOne: Ember.computed.gt 'plaetze', 1
+	
 Unterkunft.reopenClass
 	FIXTURES: [{
 		id: 'attac'

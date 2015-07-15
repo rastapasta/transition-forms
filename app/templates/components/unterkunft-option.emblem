@@ -1,15 +1,24 @@
 .radio.row.form-group
-	label
-		radio-button value=unterkunft checked=current disabled=isDisabled
-		if unterkunft.preis						
+	label style="vertical-align:middle;"	
+		radio-button value=unterkunft checked=person.unterkunft disabled=isDisabled
+		if unterkunft.preis				
 			.preis
 				| {{unterkunft.preis}} &euro;
 				small pro Nacht
+
 		' <b>{{unterkunft.name}}</b>
 		if unterkunft.info
 			| ({{unterkunft.info}})
+		
+		if isActive
+			if unterkunft.moreThanOne
+				' zusammen mit
 
 		if unterkunft.achtung
 			br
 			small
 				| (<b>Achtung:</b> {{{unterkunft.achtung}}})
+	if isActive
+		if unterkunft.moreThanOne
+			.zimmer style="margin-left:20px;width:410px;margin-top:-5px;"
+				ember-selectize maxItems=maxPax content=cosleeping optionValuePath="content.id" optionLabelPath="content.name" selection=person.unterkunftMit placeholder="Wer schläft noch mit im Zimmer?" multiple=true

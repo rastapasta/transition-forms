@@ -24,7 +24,7 @@ Person = DS.Model.extend
   willHelfen: DS.attr 'boolean'
 
   unterkunft: DS.belongsTo 'unterkunft'
-  unterkunftMit: DS.belongsTo 'person'
+  unterkunftMit: DS.hasMany 'person', inverse: false
 
   anreise: DS.attr 'string'
   abreise: DS.attr 'string'
@@ -48,9 +48,18 @@ Person.reopenClass
 		land: 'Deutschland'
 		email: 'test@test.de'
 		telefon: '0123 - 12345'
-		
+		istGruppe: 1
+		beitrag: 'normal'
+		unterkunftMit: ['a']
 	},{
-		id: 'fixture-0'
+		id: 'a'
+		name: 'Person Zwei'
+	},{
+		id: 'b'
+		name: 'Person Drei'
+	},{
+		id: 'c'
+		name: ''
 	}]
 
 `export default Person`
