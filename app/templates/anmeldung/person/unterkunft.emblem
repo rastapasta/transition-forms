@@ -2,12 +2,12 @@ hr style="margin:0 0 10px 0;"
 .uebernachtung
 	label style="font-size:120%;margin-left:-15px;padding-left:0px;padding-right:0;display:block;"
 		if person.istInGruppe
-			div.darkred style="float:right;" für #{person.name}
+			div.darkred.pull-right für #{person.name}
 		| Übernachtung beim Netzwerktreffen
 	each unterkunft in unterkuenfte
 		unterkunft-option unterkunft=unterkunft current=person.unterkunft
 
-	a.btn.btn-success style="float:right;" disabled=forwardDisabled
+	a.btn.btn-success.pull-right disabled=forwardDisabled
 		| Weiter 
 		i.glyphicon.glyphicon-chevron-right
 

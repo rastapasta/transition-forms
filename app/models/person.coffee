@@ -37,6 +37,15 @@ Person.reopenClass
 		id: 1
 		istBucher: true
 		name: 'Maxi Musterfrau'
+		initiative: 'Transition Musterstadt'
+		strasse: 'Maximilianstrasse'
+		hausnummer: '1'
+		plz: '12345'
+		ort: 'Musterstadt'
+		land: 'Deutschland'
+		email: 'test@test.de'
+		telefon: '0123 - 12345'
+		
 	},{
 		id: 'fixture-0'
 	}]

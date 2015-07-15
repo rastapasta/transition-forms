@@ -4,7 +4,6 @@
 Router = Ember.Router.extend
 	location: config.locationType
 
-
 Router.map ->
 	@route 'anmeldung', path: '/', ->
 		@route 'gruppe'
@@ -12,5 +11,7 @@ Router.map ->
 		@route 'person', path: '/person/:person_id', ->
 			@route 'beitrag'
 			@route 'unterkunft'
+
+		@route 'zusammenfassung'
 
 `export default Router`

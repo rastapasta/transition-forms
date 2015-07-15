@@ -61,6 +61,6 @@ hr style="margin:0 0 10px 0;"
 
 
 	link-to "anmeldung.person.beitrag" 1
-		button.btn.btn-success style="float:right;margin-top:10px" disabled=forwardDisabled
+		button.btn.btn-success.pull-right style="margin-top:10px" disabled=forwardDisabled
 			| Weiter 
 			i.glyphicon.glyphicon-chevron-right

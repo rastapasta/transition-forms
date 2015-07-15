@@ -1,0 +1,27 @@
+hr style="margin:0 0 10px 0;"
+.beitrag
+label style="font-size:120%;padding-left:0px;padding-right:0;display:block;"
+	| Zusammenfassung deiner Anmeldung
+
+.row
+	fieldset.col-sm-6.col-xs-6
+		legend Deine Anschrift
+		model.bucher.name
+		br
+		| #{model.bucher.strasse} #{model.bucher.hausnummer}
+		br
+		| #{model.bucher.plz} #{model.bucher.ort}
+		br
+		model.bucher.land
+	fieldset.col-sm-6.col-xs-6
+		legend Kontakt mit Dir
+		i.glyphicon.glyphicon-envelope style="margin-right: 10px;"
+		model.bucher.email
+		br
+		i.glyphicon.glyphicon-earphone style="margin-right: 10px;"
+		model.bucher.telefon
+
+.row
+	fieldset.col-sm-12
+		legend Unterkunft und Teilnahmebetrag
+		

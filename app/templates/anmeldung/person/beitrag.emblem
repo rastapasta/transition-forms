@@ -2,7 +2,7 @@ hr style="margin:0 0 10px 0;"
 .beitrag
 	label style="font-size:120%;padding-left:0px;padding-right:0;display:block;"
 		if person.istInGruppe
-			div.darkred style="float:right;" für #{person.name}
+			div.darkred.pull-right für #{person.name}
 		| Teilnahmebeitrag
 	p
 		' Im Teilnahmebeitrag inbegriffen ist leckere vegane und vegetarische
@@ -34,7 +34,7 @@ hr style="margin:0 0 10px 0;"
 			' Verbindung (Kontaktdaten siehe oben).
 
 	link-to "anmeldung.person.unterkunft" model.person.id
-		button.btn.btn-success style="float:right;" disabled=forwardDisabled
+		button.btn.btn-success.pull-right disabled=forwardDisabled
 			| Weiter 
 			i.glyphicon.glyphicon-chevron-right
 

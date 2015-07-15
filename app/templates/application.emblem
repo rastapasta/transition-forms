@@ -8,11 +8,11 @@
 		.col-sm-5
 			| Deine persönlichen Ansprechpartner*innen: &nbsp;&nbsp;
 		.col-sm-7
-			div style="white-space:nowrap;float:right;margin-left:20px;"
+			.text-nowrap.pull-right style="margin-left:20px;"
 				| Vanessa Hautmann
 				.i.glyphicon.glyphicon-phone style="margin-left:10px;margin-right:2px;"
 				| 0176 70331922
-			div style="white-space:nowrap;float:right;"
+			.text-nowrap.pull-right
 				| Michelle Platt
 				.i.glyphicon.glyphicon-phone style="margin-left:10px;margin-right:2px;"
 				| 0176 78316497

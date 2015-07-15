@@ -1,6 +1,6 @@
 .radio.row class=activeClass
 	.col-sm-9.col-sm-offset-1
-		label style="white-space:nowrap;"
+		label.text-nowrap
 			radio-button value=beitrag.id checked=current disabled=isDisabled
 			.preis
 				unless beitrag.preis
