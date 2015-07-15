@@ -23,7 +23,7 @@ Person = DS.Model.extend
   willBetreuen: DS.attr 'boolean'
   willHelfen: DS.attr 'boolean'
 
-  unterkunft: DS.belongsTo 'unterkunft'
+  unterkunft: DS.belongsTo 'unterkunft', inverse: false
   unterkunftMit: DS.hasMany 'person', inverse: false
 
   anreise: DS.attr 'string'
@@ -63,7 +63,6 @@ Person.reopenClass
 		telefon: '0123 - 12345'
 		istGruppe: 1
 		beitrag: 'normal'
-		unterkunftMit: ['a']
 	},{
 		id: 'a'
 		name: 'Person Zwei'

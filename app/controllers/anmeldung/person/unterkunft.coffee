@@ -27,7 +27,8 @@ AnmeldungPersonUnterkunftController = Ember.ObjectController.extend
 	).property 'model.gruppe.@each.unterkunft'
 
 	cosleepingReset: (->
-		@set 'model.person.unterkunftMit', []
+		if @get('model.person.unterkunftMit.length') > @get('model.person.unterkunft.plaetze')-1
+			@set 'model.person.unterkunftMit', []
 	).observes 'model.person.unterkunft'
 
 `export default AnmeldungPersonUnterkunftController`
