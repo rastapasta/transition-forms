@@ -35,10 +35,10 @@ AnmeldungZusammenfassungController = Ember.Controller.extend
 				personen.push person
 
 			mix.push
-				count: 3
+				count: 2
 				personen: personen
 				unterkunft: unterkunft
-				summe: 3*unterkunft.get('preis')
+				summe: 2*unterkunft.get('preis')
 
 		mix
 	).property 'model.gruppe.@each.unterkunft'

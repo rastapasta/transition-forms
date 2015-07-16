@@ -73,9 +73,9 @@ hr style="margin:0 0 10px 0;"
 							unterkunft.unterkunft.name
 							br
 							small style="color:#aaa;"
-								' 16.08.
+								' 28.08.
 								i.glyphicon.glyphicon-arrow-right
-								|  18.08.
+								|  30.08.
 						td
 							if model.bucher.istGruppe
 								each person in unterkunft.personen
