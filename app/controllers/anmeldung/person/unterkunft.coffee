@@ -21,7 +21,8 @@ AnmeldungPersonUnterkunftController = Ember.Controller.extend
 		personen = []
 		@get('model.gruppe').forEach (person) =>
 			return if person.get('name') is ""
-			if not person.get('unterkunft') and person.get('id') isnt @get('model.person.id')
+			return if person.get('id') is @get('model.person.id')
+			if person.get('id') > @get('model.person.id')
 				personen.push person
 		personen
 	).property 'model.gruppe.@each.unterkunft'
