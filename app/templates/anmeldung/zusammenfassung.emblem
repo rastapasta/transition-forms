@@ -35,7 +35,7 @@ hr style="margin:0 0 10px 0;"
 			else			
 				| Unterkunft und Teilnahmebeitrag
 
-		table.table
+		table.table.zusammenfassung
 			tbody style="border:0;"
 
 
@@ -52,15 +52,17 @@ hr style="margin:0 0 10px 0;"
 						td.text-right style="white-space:nowrap;"
 							if beitrag.multiple
 								if beitrag.beitrag.aktuellerPreis
-									| á #{beitrag.beitrag.aktuellerPreis} &euro;
+									| #{beitrag.beitrag.aktuellerPreis} &euro;
+								sup
+									| / Person
 						td.text-right style="white-space:nowrap;" #{beitrag.summe} &euro;
 				
 
 
 				if model.bucher.istGruppe
 					tr
-						td colspan="5"
-							hr style="margin:0;"
+						td colspan="5" style="padding:0;"
+							hr style="margin:0 0 5px 0;"
 
 
 
@@ -69,16 +71,24 @@ hr style="margin:0 0 10px 0;"
 						td #{unterkunft.count}x
 						td
 							unterkunft.unterkunft.name
+							br
+							small style="color:#aaa;"
+								' 16.08.
+								i.glyphicon.glyphicon-arrow-right
+								|  18.08.
 						td
 							if model.bucher.istGruppe
 								each person in unterkunft.personen
 									person.name
 									br
-						td.text-right á #{unterkunft.unterkunft.preis} &euro;
+						td.text-right
+							' #{unterkunft.unterkunft.preis} &euro;
+							sup
+								| / Nacht
 						td.text-right #{unterkunft.summe} &euro;
 
 				tr
-					td colspan="5"
+					td colspan="5" style="padding:0;"
 						hr style="margin:0;"
 				tr
 					td colspan="3"
@@ -86,15 +96,13 @@ hr style="margin:0 0 10px 0;"
 					td.text-right: strong #{summe} &euro;
 				
 
-link-to "anmeldung.zusammenfassung"
-	button.btn.btn-danger.pull-right disabled=forwardDisabled
-		if model.bucher.istGruppe
-			' Gruppe verbindlich anmelden
-		else
-			' Verbindlich anmelden
-		i.glyphicon.glyphicon-play
+button.btn.btn-danger.pull-right{action "anmelden"} disabled=forwardDisabled
+	if model.bucher.istGruppe
+		' Gruppe verbindlich anmelden
+	else
+		' Verbindlich anmelden
+	i.glyphicon.glyphicon-play
 
-link-to "anmeldung.person.beitrag" model.person.id
-	button.btn.btn-default
-		i.glyphicon.glyphicon-chevron-left
-		|  Zurück
+button.btn.btn-default{action "back" "zusammenfassung"}
+	i.glyphicon.glyphicon-chevron-left
+	|  Zurück

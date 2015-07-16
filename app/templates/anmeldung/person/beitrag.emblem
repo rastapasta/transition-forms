@@ -33,10 +33,9 @@ hr style="margin:0 0 10px 0;"
 			' Schwierigkeiten bereiten sollte, setze Dich bitte direkt mit uns in
 			' Verbindung (Kontaktdaten siehe oben).
 
-	link-to "anmeldung.person.unterkunft" model.person.id
-		button.btn.btn-success.pull-right disabled=forwardDisabled
-			| Weiter 
-			i.glyphicon.glyphicon-chevron-right
+	button.btn.btn-success.pull-right{action "next" "beitrag" model.person.id} disabled=forwardDisabled
+		| Weiter 
+		i.glyphicon.glyphicon-chevron-right
 
 	if canGoBack
 		link-to "anmeldung.gruppe"

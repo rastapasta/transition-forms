@@ -60,7 +60,6 @@ hr style="margin:0 0 10px 0;"
 			' absprechen könnt.
 
 
-	link-to "anmeldung.person.beitrag" 1
-		button.btn.btn-success.pull-right style="margin-top:10px" disabled=forwardDisabled
-			| Weiter 
-			i.glyphicon.glyphicon-chevron-right
+	button.btn.btn-success.pull-right{action "next" "gruppe"} style="margin-top:10px" disabled=forwardDisabled
+		| Weiter 
+		i.glyphicon.glyphicon-chevron-right

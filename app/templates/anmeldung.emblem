@@ -2,43 +2,43 @@
 	.col-sm-5
 		.form-group
 			label Dein Name:
-			=input class="form-control" value=model.name placeholder="Vorname & Nachname"
+			=input class="form-control" value=model.person.name placeholder="Vorname & Nachname"
 		.form-group
 			label Transition Initiative:
-			=input class="form-control" value=model.initiative placeholder="In welcher Transition Initiative bist du aktiv?"
+			=input class="form-control" value=model.person.initiative placeholder="In welcher Transition Initiative bist du aktiv?"
 		
 		.form-group
 			label Deine Anschrift:
 			
 			div style="line-height:40px"
-				=input class="form-control strasse" placeholder="Straße" value=model.strasse
-				=input class="form-control hausnummer" placeholder="Nummer" value=model.hausnummer
+				=input class="form-control strasse" placeholder="Straße" value=model.person.strasse
+				=input class="form-control hausnummer" placeholder="Nummer" value=model.person.hausnummer
 
-				=input class="form-control plz" placeholder="PLZ" value=model.plz
-				=input class="form-control ort" placeholder="Ort" value=model.ort
+				=input class="form-control plz" placeholder="PLZ" value=model.person.plz
+				=input class="form-control ort" placeholder="Ort" value=model.person.ort
 
-				=input class="form-control land" placeholder="Land" value=model.land
+				=input class="form-control land" placeholder="Land" value=model.person.land
 
 		.form-group
 			label E-Mail-Adresse:
-			=input class="form-control" placeholder="E-Mail" value=model.email
+			=input class="form-control" placeholder="E-Mail" value=model.person.email
 
 		.form-group
 			label Telefon:
-			=input class="form-control" placeholder="Handy- oder Festnetznummer" value=model.telefon
+			=input class="form-control" placeholder="Handy- oder Festnetznummer" value=model.person.telefon
 	.col-sm-7
 		label Meldest du nur dich, oder eine ganze Familie/Gruppe an?
 		.row
 			.col-sm-6
 				.radio style="margin-top:5px;"
 					label
-						radio-button value=false checked=model.istGruppe
+						radio-button value=false checked=model.person.istGruppe
 						/| Ich melde nur mich persönlich an
 						| Persönliche Anmeldung
 			.col-sm-6
 				.radio style="margin-top:5px;"
 					label
-						radio-button value=true checked=model.istGruppe
+						radio-button value=true checked=model.person.istGruppe
 						/| Dies ist eine Familien-/Gruppenanmeldung
 						| Familien-/Gruppenanmeldung
 		outlet
