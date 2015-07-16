@@ -2,9 +2,9 @@
 
 AnmeldungController = Ember.Controller.extend
 	gruppenChange: (->
-		switch @get 'model.istGruppe'
-			when true then @transitionToRoute 'anmeldung.zusammenfassung' #gruppe
+		switch @get 'model.person.istGruppe'
+			when true then @transitionToRoute 'anmeldung.gruppe'
 			when false then @transitionToRoute 'anmeldung.person.beitrag', 1
-	).observes 'model.istGruppe'
+	).observes 'model.person.istGruppe'
 
 `export default AnmeldungController`

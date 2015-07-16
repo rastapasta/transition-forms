@@ -1,8 +1,8 @@
 hr style="margin:0 0 10px 0;"
 .beitrag
 	label style="font-size:120%;padding-left:0px;padding-right:0;display:block;"
-		if person.istInGruppe
-			div.darkred.pull-right für #{person.name}
+		if model.person.istInGruppe
+			div.darkred.pull-right für #{model.person.name}
 		| Teilnahmebeitrag
 	p
 		' Im Teilnahmebeitrag inbegriffen ist leckere vegane und vegetarische
@@ -11,10 +11,10 @@ hr style="margin:0 0 10px 0;"
 	p style="margin-bottom:20px;"
 		' Hiermit meldest du
 
-		if person.istBucher
+		if model.person.istBucher
 			b dich persönlich 
 		else
-			b.darkred #{person.name} 
+			b.darkred #{model.person.name} 
 
 		' zum Netzwerktreffen zu folgenden Konditionen an:
 
@@ -38,7 +38,6 @@ hr style="margin:0 0 10px 0;"
 		i.glyphicon.glyphicon-chevron-right
 
 	if canGoBack
-		link-to "anmeldung.gruppe"
-			button.btn.btn-default
-				i.glyphicon.glyphicon-chevron-left
-				|  Zurück
+		button.btn.btn-default{action "back" "beitrag" model.person.id}
+			i.glyphicon.glyphicon-chevron-left
+			|  Zurück

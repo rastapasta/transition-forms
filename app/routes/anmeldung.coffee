@@ -21,15 +21,17 @@ AnmeldungRoute = Ember.Route.extend
 		back: (current, id) -> 
 			switch current
 				when "beitrag"
-					if previous = @getNextId id, true
+					previous = @getNextId id, true
+					if previous isnt null
 						@transitionTo "anmeldung.person.unterkunft", previous
 					else
-						@transitionTo "anmeldung.gruppe", id
+						@transitionTo "anmeldung.gruppe"
 				when "unterkunft"
 					@transitionTo "anmeldung.person.beitrag", id
 
 				when "zusammenfassung"
-					@transitionTo "anmeldung.person.unterkunft", @modelFor('anmeldung').gruppe.get('lastObject.id')
+					gruppe = @modelFor('anmeldung').gruppe
+					@transitionTo "anmeldung.person.unterkunft", gruppe.objectAt(gruppe.get('length')-2).get('id')
 
 	getNextId: (id, backwards) ->
 		gruppe = @modelFor('anmeldung').gruppe
@@ -37,7 +39,7 @@ AnmeldungRoute = Ember.Route.extend
 		for i in [0...count]
 			person = gruppe.objectAt(i)
 			if person.get('id') is id
-				return null if not i or i is count-1
+				return null if (backwards and i is 0) or (not backwards and i is count-2)
 				return gruppe.objectAt(if backwards then i-1 else i+1).get 'id'
 
 `export default AnmeldungRoute`
