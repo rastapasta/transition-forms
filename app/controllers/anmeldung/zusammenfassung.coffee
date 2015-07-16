@@ -17,7 +17,7 @@ AnmeldungZusammenfassungController = Ember.Controller.extend
 			mix[id].count++
 			mix[id].multiple = mix[id].count > 1
 			
-			mix[id].summe += beitrag.get 'preis'
+			mix[id].summe += beitrag.get 'aktuellerPreis'
 
 		beitrag for k,beitrag of mix
 	).property 'model.gruppe.@each.beitrag'
