@@ -91,7 +91,13 @@ hr style="margin:0 0 10px 0;"
 					td colspan="5" style="padding:0;"
 						hr style="margin:0;"
 				tr
-					td.text-right colspan="4": strong Auf Dich zukommende Kosten:
+					td.text-right colspan="4": strong
+						' Auf
+						if model.bucher.istGruppe
+							' Euch
+						else
+							' Dich
+						' zukommende Kosten:
 					td.text-right: strong #{summe} &euro;
 				
 

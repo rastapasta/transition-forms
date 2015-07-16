@@ -5,13 +5,23 @@ AnmeldungRoute = Ember.Route.extend
 		Ember.RSVP.hash
 			person: @store.find 'person', 1
 			gruppe: @store.find 'person'
+
+	canSeeUnterkunft: (id, yesCb, noCb) ->
+		@store.find('person', id).then (person) =>
+			if person.get('schlaeftBei')
+				noCb()
+			else
+				yesCb()
+
 	actions:
 		next: (current, id) ->
 			switch current
 				when "gruppe"
 					@transitionTo "anmeldung.person.beitrag", 1
 				when "beitrag"
-					@transitionTo "anmeldung.person.unterkunft", id
+					@canSeeUnterkunft id,
+						=> @transitionTo "anmeldung.person.unterkunft", id
+						=> @send "next", "unterkunft", id
 				when "unterkunft"
 					if nextId = @getNextId id
 						@transitionTo "anmeldung.person.beitrag", nextId
@@ -23,7 +33,9 @@ AnmeldungRoute = Ember.Route.extend
 				when "beitrag"
 					previous = @getNextId id, true
 					if previous isnt null
-						@transitionTo "anmeldung.person.unterkunft", previous
+						@canSeeUnterkunft previous,
+							=> @transitionTo "anmeldung.person.unterkunft", previous
+							=> @send "back", "unterkunft", previous
 					else
 						@transitionTo "anmeldung.gruppe"
 				when "unterkunft"
@@ -31,7 +43,12 @@ AnmeldungRoute = Ember.Route.extend
 
 				when "zusammenfassung"
 					gruppe = @modelFor('anmeldung').gruppe
-					@transitionTo "anmeldung.person.unterkunft", gruppe.objectAt(gruppe.get('length')-2).get('id')
+					previous = gruppe.objectAt(gruppe.get('length')-2).get('id')
+
+					@canSeeUnterkunft previous,
+						=> @transitionTo "anmeldung.person.unterkunft", previous
+						=> @send "back", "unterkunft", previous
+
 
 	getNextId: (id, backwards) ->
 		gruppe = @modelFor('anmeldung').gruppe
