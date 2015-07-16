@@ -35,7 +35,7 @@ Beitrag.reopenClass
 		preis: 70
 	},{
 		id: 'kostenlos'
-		name: 'Kostenlos'
+		name: 'Kostenlos (für Kinder und Helfer*innen)'
 		info: 'für Kinder und Helfer*innen'
 		preis: 0
 	}]
