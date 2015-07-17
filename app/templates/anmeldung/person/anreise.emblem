@@ -1,0 +1,35 @@
+hr style="margin:0 0 10px 0;"
+.anreise style="min-height:330px;"
+	label style="font-size:120%;" Tage auf dem Netzwerktreffen
+	br
+	label Interesse am Mithelfen?
+	.row
+		.col-sm-12
+			' Wir suchen bis zu 10 Teilnehmer*innen, die bereits
+			b class=hilfeClass am Mittwoch (26.8.) anreisen 
+			' und Donnerstag mit aufbauen, Transparente malen etc. sowie während des Wochenendes helfend unterstützen.
+			br
+			' <i>Kostenlose Teilnahme</i> und <i>Unterbringung</i> während des Treffens winken!
+
+	.checkbox
+		label
+			=input type="checkbox" checked=model.person.willHelfen
+			| Ich melde mich zum Aufbau, zur Unterstützung beim Wochenende und zum Abbau an
+
+	label style="margin-top:10px;" Anwesenheit beim Netzwerktreffen
+	.row
+		.col-sm-5.col-xs-5.text-center class=hilfeClass
+			view "select" content=anreiseTage optionValuePath="content.id" optionLabelPath="content.value" class="form-control" value=model.person.anreise prompt="Anreise am.." disabled=model.person.willHelfen
+		.col-sm-2.col-xs-2.text-center style="padding-top:5px;" bis
+		.col-sm-5.col-xs-5.text-center
+			view "select" content=abreiseTage optionValuePath="content.id" optionLabelPath="content.value" class="form-control" value=model.person.abreise prompt="Abreise am.."
+
+button.btn.btn-success.pull-right{action "next" "anreise" model.person.id} style="margin-top:10px" disabled=forwardDisabled
+	' Weiter
+	i.glyphicon.glyphicon-chevron-right
+
+if canGoBack
+	button.btn.btn-default{action "back" "beitrag" model.person.id}
+		i.glyphicon.glyphicon-chevron-left
+		|  Zurück
+

@@ -1,19 +1,6 @@
 `import Ember from 'ember'`
 
 AnmeldungGruppeController = Ember.Controller.extend
-	actions:
-		updateGruppe: ->
-			oneEmpty = false
-			@get('model.gruppe').forEach (person) ->
-				unless person.get('name')
-					if oneEmpty
-						person.deleteRecord()
-					else
-						oneEmpty = true
-
-			unless oneEmpty
-				@store.createRecord 'person'
-
 	tage: [
 		{id: 'mittwoch', value: 'Mittwoch, 26.8.', nurAnreise: true, nurHelfer: true}
 		{id: 'freitag', value: 'Freitag, 28.8.'}
@@ -64,5 +51,17 @@ AnmeldungGruppeController = Ember.Controller.extend
 		hatKind
 	).property 'model.gruppe.@each.istErwachsen'
 
+	actions:
+		updateGruppe: ->
+			oneEmpty = false
+			@get('model.gruppe').forEach (person) ->
+				unless person.get('name')
+					if oneEmpty
+						person.deleteRecord()
+					else
+						oneEmpty = true
+
+			unless oneEmpty
+				@store.createRecord 'person'
 
 `export default AnmeldungGruppeController`

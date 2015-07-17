@@ -9,6 +9,7 @@ Router.map ->
 		@route 'gruppe'
 
 		@route 'person', path: '/person/:person_id', ->
+			@route 'anreise'
 			@route 'beitrag'
 			@route 'unterkunft'
 

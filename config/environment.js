@@ -21,8 +21,8 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'default-src': "'none'",
       'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
-      'font-src': "'self' fonts.gstatic.com",
-      'connect-src': "'self' ws://localhost:7000 localhost:7000 maps.gstatic.com maps.googleapis.com",
+      'font-src': "'self'",
+      'connect-src': "'self' ws://localhost:7000 localhost:7000",
       'img-src': "'self",
       'report-uri':"'localhost'",
       'style-src': "'self' 'unsafe-inline'",
