@@ -1,10 +1,15 @@
 .radio.row.form-group
 	label style="vertical-align:middle;"	
 		radio-button value=unterkunft checked=person.unterkunft disabled=isDisabled
-		if unterkunft.preis				
+		
+		if unterkunft.preis
 			.preis
-				| {{unterkunft.preis}} &euro;
-				small pro Nacht
+				if isFree
+					| 0 &euro;
+					small kostenlos
+				else
+					| {{unterkunft.preis}} &euro;
+					small pro Nacht
 
 		' <b>{{unterkunft.name}}</b>
 		if unterkunft.info

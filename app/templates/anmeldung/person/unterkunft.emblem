@@ -1,5 +1,5 @@
 hr style="margin:0 0 10px 0;"
-.uebernachtung
+.uebernachtung style="min-height:325px;"
 	label.row style="font-size:120%;padding-left:0px;padding-right:0;display:block;"
 		if model.person.istInGruppe
 			div.darkred.pull-right style="margin-right:-20px;" für #{model.person.name}
@@ -7,10 +7,10 @@ hr style="margin:0 0 10px 0;"
 	each unterkunft in unterkuenfte
 		unterkunft-option gruppe=model.gruppe unterkunft=unterkunft person=model.person cosleeping=cosleepingOptionen
 
-	button.btn.btn-success.pull-right{action "next" "unterkunft" model.person.id} disabled=forwardDisabled
-		| Weiter 
-		i.glyphicon.glyphicon-chevron-right
+button.btn.btn-success.pull-right{action "next" "unterkunft" model.person.id} disabled=forwardDisabled
+	| Weiter 
+	i.glyphicon.glyphicon-chevron-right
 
-	button.btn.btn-default{action "back" "unterkunft" model.person.id}
-		i.glyphicon.glyphicon-chevron-left
-		|  Zurück
+button.btn.btn-default{action "back" "unterkunft" model.person.id}
+	i.glyphicon.glyphicon-chevron-left
+	|  Zurück

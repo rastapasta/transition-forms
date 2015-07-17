@@ -48,8 +48,8 @@ Bitte bringe Deine eigene Bettwäsche bzw. Schlafsack mit.'
 		plaetze: 1
 		preis: 5
 		achtung: 'Wir weisen darauf hin, dass die Duschmöglichkeiten begrenzt sind.<br/>
-Bitte sorge selbst für entsprechende Ausrüstung wie Zelt, Schlafsack usw.
-'		umsonstFuerHelfer: true
+Bitte sorge selbst für entsprechende Ausrüstung wie Zelt, Schlafsack usw.'
+		umsonstFuerHelfer: true
 		umsonstFuerKinder: true
 	},{
 		id: 'wohnmobil'

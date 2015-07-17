@@ -1,5 +1,5 @@
 hr style="margin:0 0 10px 0;"
-.beitrag
+.beitrag style="min-height:325px;"
 	label style="font-size:120%;padding-left:0px;padding-right:0;display:block;"
 		if model.person.istInGruppe
 			div.darkred.pull-right für #{model.person.name}
@@ -33,10 +33,10 @@ hr style="margin:0 0 10px 0;"
 			' Schwierigkeiten bereiten sollte, setze Dich bitte direkt mit uns in
 			' Verbindung (Kontaktdaten siehe oben).
 
-	button.btn.btn-success.pull-right{action "next" "beitrag" model.person.id} disabled=forwardDisabled
-		| Weiter 
-		i.glyphicon.glyphicon-chevron-right
+button.btn.btn-success.pull-right{action "next" "beitrag" model.person.id} disabled=forwardDisabled
+	| Weiter 
+	i.glyphicon.glyphicon-chevron-right
 
-	button.btn.btn-default{action "back" "beitrag" model.person.id}
-		i.glyphicon.glyphicon-chevron-left
-		|  Zurück
+button.btn.btn-default{action "back" "beitrag" model.person.id}
+	i.glyphicon.glyphicon-chevron-left
+	|  Zurück
