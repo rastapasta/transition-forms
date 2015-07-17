@@ -23,6 +23,9 @@ Person = DS.Model.extend
   willBetreuen: DS.attr 'boolean'
   willHelfen: DS.attr 'boolean'
 
+  # TODO: when a booker moves back after having set all accomodations,
+  #	make sure to remove followup cosleepings relations to avoid double-
+  # relating one person to many unterkunftMit
   unterkunft: DS.belongsTo 'unterkunft', inverse: false
   unterkunftMit: DS.hasMany 'person', inverse: 'schlaeftBei'
   schlaeftBei: DS.belongsTo 'person', inverse: 'unterkunftMit'
@@ -63,22 +66,5 @@ Person.reopenClass
 		email: 'test@test.de'
 		telefon: '0123 - 12345'
 	}]
-	###,{
-		id: '2'
-	}
-	]
-	,{
-		id: 'a'
-		name: 'Kim Dreit'
-		beitrag: 'soli'
-	},{
-		id: 'b'
-		name: 'Anna Janna'
-		beitrag: 'soli'
-		unterkunft: 'wohnmobil'
-	},{
-		id: 'c'
-		name: ''
-	}]###
 
 `export default Person`

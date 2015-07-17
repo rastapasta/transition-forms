@@ -50,12 +50,10 @@ AnmeldungRoute = Ember.Route.extend
 
 				when "zusammenfassung"
 					gruppe = @modelFor('anmeldung').gruppe
-					previous = gruppe.objectAt(gruppe.get('length')-2).get('id')
+					previous = gruppe.objectAt(gruppe.get('length')-1).get('id')
 
 					@canSeeUnterkunft previous,
 						=> @transitionTo "anmeldung.person.unterkunft", previous
 						=> @send "back", "unterkunft", previous
-
-
 
 `export default AnmeldungRoute`
