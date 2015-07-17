@@ -2,9 +2,15 @@
 
 Registration forms for events hosted by the non-profit Transition movement.
 
-## How to do a local build?
+## ToDos
 
-You will need the following things properly installed on your computer.
+* Calculation/Summary: implement free accomodation for kids and volunteers
+* General: forward / back navigation respecting the new travel dates page
+* Upload: actually... send the mail out to the team :)
+
+## How to work on it?
+
+Get the following things up and running in your environment
 
 * [Git](http://git-scm.com/)
 * [Node.js](http://nodejs.org/) (with NPM)
@@ -14,17 +20,11 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone https://github.com/rastapasta/transition-forms.git` this repository
-* change into the new directory
-* `npm install`
-* `bower install`
+* Clone this repository
+* Change into the new directory
+* `npm install && bower install`
 
 ## Running / Development
 
 * `ember server`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
+* Get your browser to [http://localhost:4200](http://localhost:4200) and see it work!
