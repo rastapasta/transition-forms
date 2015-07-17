@@ -46,8 +46,8 @@ AnmeldungGruppeController = Ember.Controller.extend
 	).property 'model.bucher.anreise'
 
 	abreiseAmSonntag: (->
-		if @get('model.bucher.anreise') is 'sonntag' 
-			@set 'model.bucher.abreise', 'sonntag'
+		if @get('model.bucher.anreise') is '30.08.' 
+			@set 'model.bucher.abreise', '30.08.'
 	).observes 'model.bucher.anreise'
 
 	gruppeHatKind: (->

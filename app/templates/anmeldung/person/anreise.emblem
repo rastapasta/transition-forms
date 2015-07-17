@@ -1,5 +1,5 @@
 hr style="margin:0 0 10px 0;"
-.anreise style="min-height:330px;"
+.anreise style="min-height:325px;"
 	label style="font-size:120%;display:block;"
 		if model.person.istInGruppe
 			.darkred.pull-right von #{model.person.name}
@@ -47,7 +47,7 @@ button.btn.btn-success.pull-right{action "next" "anreise" model.person.id} style
 	i.glyphicon.glyphicon-chevron-right
 
 if canGoBack
-	button.btn.btn-default{action "back" "beitrag" model.person.id}
+	button.btn.btn-default{action "back" "anreise" model.person.id}
 		i.glyphicon.glyphicon-chevron-left
 		|  Zurück
 

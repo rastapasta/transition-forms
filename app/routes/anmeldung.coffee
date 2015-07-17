@@ -21,11 +21,22 @@ AnmeldungRoute = Ember.Route.extend
 			else
 				yesCb()
 
+	canSeeAnreise: (id, yesCb, noCb) ->
+		@store.find('person', id).then (person) =>
+			return yesCb() if not person.get('istInGruppe')
+
+			if (not person.get('gruppeReist') and not person.get('parent.gruppeReist')) or person.get('gruppeHilft')
+				yesCb()
+			else
+				noCb()
+
 	actions:
 		next: (current, id) ->
 			switch current
 				when "gruppe"
-					@transitionTo "anmeldung.person.anreise", 1
+					@canSeeAnreise 1,
+						=> @transitionTo "anmeldung.person.anreise", 1
+						=> @send "next", "anreise", 1
 				when "anreise"
 					@transitionTo "anmeldung.person.beitrag", id
 				when "beitrag"
@@ -34,19 +45,27 @@ AnmeldungRoute = Ember.Route.extend
 						=> @send "next", "unterkunft", id
 				when "unterkunft"
 					if nextId = @getNextId id
-						@transitionTo "anmeldung.person.beitrag", nextId
+						@canSeeAnreise nextId,
+							=> @transitionTo "anmeldung.person.anreise", nextId
+							=> @send "next", "anreise", nextId
 					else
 						@transitionTo "anmeldung.zusammenfassung"
 
 		back: (current, id) -> 
 			switch current
-				when "beitrag"
+				when "anreise"
 					if previous = @getNextId id, true
 						@canSeeUnterkunft previous,
 							=> @transitionTo "anmeldung.person.unterkunft", previous
 							=> @send "back", "unterkunft", previous
 					else
 						@transitionTo "anmeldung.gruppe"
+
+				when "beitrag"
+					@canSeeAnreise id,
+						=> @transitionTo "anmeldung.person.anreise", id
+						=> @send "back", "anreise", id
+
 				when "unterkunft"
 					@transitionTo "anmeldung.person.beitrag", id
 

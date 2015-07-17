@@ -10,7 +10,7 @@ AnmeldungGruppeRoute = Ember.Route.extend
 		controller.send 'updateGruppe'
 
 	deactivate: ->
-		@modelFor('anmeldung.gruppe').gruppe.forEach (p) ->
-			p.deleteRecord() unless p.get('name')?
+		@modelFor('anmeldung.gruppe').gruppe.forEach (person) ->
+			person.deleteRecord() unless person.get('name')?
 
 `export default AnmeldungGruppeRoute`

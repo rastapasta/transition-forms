@@ -28,8 +28,8 @@ AnmeldungPersonAnreiseController = Ember.Controller.extend
 	).observes 'model.person.willHelfen'
 
 	abreiseAmSonntag: (->
-		if @get('model.person.anreise') is 'sonntag' 
-			@set 'model.person.abreise', 'sonntag'
+		if @get('model.person.anreise') is '30.08.' 
+			@set 'model.person.abreise', '30.08.'
 	).observes 'model.person.anreise'
 
 	hilfeClass: (->
