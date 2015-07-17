@@ -35,13 +35,13 @@ hr style="margin:0 0 10px 0;"
 		label style="margin-top:10px;margin-bottom:10px;" Rezeptionszeiten vor Ort
 		table.table style="margin-bottom:0;"
 			thead
-				th.text-center class=fridayClass Freitag
-				th.text-center class=saturdayClass Samstag
-				th.text-center class=sundayClass Sonntag
+				th class=fridayClass Freitag
+				th class=saturdayClass Samstag
+				th class=sundayClass Sonntag
 			tbody
-				td.text-center class=fridayClass bis 14-16 Uhr, 21-22 Uhr
-				td.text-center class=saturdayClass 8:00 - 9:30 Uhr
-				td.text-center class=sundayClass ggf. Sonntag 8:00-8:30 Uhr
+				td class=fridayClass bis 14-16 Uhr, 21-22 Uhr
+				td class=saturdayClass 8:00 - 9:30 Uhr
+				td class=sundayClass ggf. Sonntag 8:00-8:30 Uhr
 button.btn.btn-success.pull-right{action "next" "anreise" model.person.id} style="margin-top:10px" disabled=forwardDisabled
 	' Weiter
 	i.glyphicon.glyphicon-chevron-right

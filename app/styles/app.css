@@ -1,5 +1,6 @@
 .anreise .table th, .anreise .table td {
 	color: #bbb;
+	text-align: center;
 }
 .highlight {
 	color: #000 !important;
