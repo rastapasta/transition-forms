@@ -18,6 +18,8 @@ AnmeldungPersonAnreiseController = Ember.Controller.extend
 	willHelfen: (->
 		if @get 'model.person.willHelfen'
 			@set 'model.person.anreise', 'mittwoch'
+		else if @get('model.person.anreise') is 'mittwoch'
+			@set 'model.person.anreise', undefined
 	).observes 'model.person.willHelfen'
 
 	hilfeClass: (->

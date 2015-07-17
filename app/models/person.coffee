@@ -13,6 +13,9 @@ Person = DS.Model.extend
 
   alter: DS.attr 'number'
 
+  parent: DS.belongsTo 'person', inverse: 'childs'
+  childs: DS.hasMany 'person', inverse: 'parent'
+
   istErwachsen: DS.attr 'boolean', defaultValue: true
   istBucher: DS.attr 'boolean', defaultValue: false
   

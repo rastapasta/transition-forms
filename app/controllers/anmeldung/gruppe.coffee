@@ -31,6 +31,8 @@ AnmeldungGruppeController = Ember.Controller.extend
 	gruppeHilft: (->
 		if @get 'model.bucher.gruppeHilft'
 			@set 'model.bucher.anreise', 'mittwoch'
+		else if @get('model.bucher.anreise') is 'mittwoch'
+			@set 'model.bucher.anreise', undefined
 	).observes 'model.bucher.gruppeHilft'
 
 	anreiseTage: (->
@@ -62,6 +64,6 @@ AnmeldungGruppeController = Ember.Controller.extend
 						oneEmpty = true
 
 			unless oneEmpty
-				@store.createRecord 'person'
+				@store.createRecord 'person', parent: @get('model.bucher')
 
 `export default AnmeldungGruppeController`
