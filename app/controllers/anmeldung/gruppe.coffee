@@ -2,10 +2,10 @@
 
 AnmeldungGruppeController = Ember.Controller.extend
 	tage: [
-		{id: 'mittwoch', value: 'Mittwoch, 26.8.', nurAnreise: true, nurHelfer: true}
-		{id: 'freitag', value: 'Freitag, 28.8.'}
-		{id: 'samstag', value: 'Samstag, 29.8.'}
-		{id: 'sonntag', value: 'Sonntag, 30.8.'}
+		{id: '26.08.', value: 'Mittwoch, 26.8.', nurAnreise: true, nurHelfer: true}
+		{id: '28.08.', value: 'Freitag, 28.8.'}
+		{id: '29.08.', value: 'Samstag, 29.8.'}
+		{id: '30.08.', value: 'Sonntag, 30.8.'}
 	]
 
 	alter: (->
@@ -30,8 +30,8 @@ AnmeldungGruppeController = Ember.Controller.extend
 
 	gruppeHilft: (->
 		if @get 'model.bucher.gruppeHilft'
-			@set 'model.bucher.anreise', 'mittwoch'
-		else if @get('model.bucher.anreise') is 'mittwoch'
+			@set 'model.bucher.anreise', '26.08.'
+		else if @get('model.bucher.anreise') is '26.08'
 			@set 'model.bucher.anreise', undefined
 	).observes 'model.bucher.gruppeHilft'
 
