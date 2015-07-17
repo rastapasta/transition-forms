@@ -27,8 +27,13 @@ AnmeldungPersonAnreiseController = Ember.Controller.extend
 	willHelfen: (->
 		if @get 'model.person.willHelfen'
 			@set 'model.person.anreise', '26.08.'
+
+			@store.find('beitrag', 'kostenlos').then (beitrag) =>
+				@set 'model.person.beitrag', beitrag
+
 		else if @get('model.person.anreise') is '26.08.'
 			@set 'model.person.anreise', undefined
+			@set 'model.person.beitrag', undefined
 	).observes 'model.person.willHelfen'
 
 	abreiseAmSonntag: (->

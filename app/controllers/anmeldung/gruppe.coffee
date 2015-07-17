@@ -35,6 +35,17 @@ AnmeldungGruppeController = Ember.Controller.extend
 			@set 'model.bucher.anreise', undefined
 	).observes 'model.bucher.gruppeHilft'
 
+	erwachsenChange: (->
+		@get('model.gruppe').forEach (person) =>
+			if person.get('istErwachsen')
+				if person.get('beitrag.id') is 'kostenlos'
+					person.set 'beitrag', undefined
+			else
+				if person.get('beitrag.id') isnt 'kostenlos'
+					@store.find('beitrag', 'kostenlos').then (beitrag) =>
+						person.set 'beitrag', beitrag
+	).observes 'model.gruppe.@each.istErwachsen'
+
 	anreiseTage: (->
 		tag for tag in @tage when not tag.nurHelfer or @get('model.bucher.gruppeHilft')
 	).property 'model.bucher.gruppeHilft'
