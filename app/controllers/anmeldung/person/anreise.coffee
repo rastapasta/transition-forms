@@ -13,8 +13,6 @@ AnmeldungPersonAnreiseController = Ember.Controller.extend
 	saturdayClass: (-> if not @get('model.person.anreise') or @get('model.person.anreise') is '29.08.' then 'highlight' else '').property 'model.person.anreise'
 	sundayClass: (-> if not @get('model.person.anreise') or @get('model.person.anreise') is '30.08.' then 'highlight' else '').property 'model.person.anreise'
 
-	canGoBack: Ember.computed.alias 'model.person.istInGruppe'
-
 	kannHelfen: (->
 		(@get('model.person.gruppeHilft') or @get('model.person.parent.gruppeHilft')) or
 		(@get('model.person.id') is '1' and not @get('model.person.istInGruppe'))
@@ -45,9 +43,16 @@ AnmeldungPersonAnreiseController = Ember.Controller.extend
 		'darkred' if @get('model.person.willHelfen')
 	).property 'model.person.willHelfen'
 
+	canGoBack: Ember.computed.alias 'model.person.istInGruppe'
+
 	forwardDisabled: (->
-		not @get('model.person.anreise') or not @get('model.person.abreise')
-	).property 'model.person.anreise', 'model.person.abreise'
+		if @get('model.person.gruppeReist') or @get('model.person.parent.gruppeReist')
+			return false
+		else if not @get('model.person.anreise') or not @get('model.person.abreise')
+			return true
+		else
+			false
+	).property 'model.person.anreise', 'model.person.abreise', 'model.person.gruppeReist', 'model.person.parent.gruppeReist'
 
 	anreiseTage: (->
 		tag for tag in @tage when not tag.nurHelfer or @get('model.person.willHelfen')

@@ -25,7 +25,7 @@ AnmeldungRoute = Ember.Route.extend
 		@store.find('person', id).then (person) =>
 			return yesCb() if not person.get('istInGruppe')
 
-			if (not person.get('gruppeReist') and not person.get('parent.gruppeReist')) or person.get('gruppeHilft')
+			if (not person.get('gruppeReist') and not person.get('parent.gruppeReist')) or person.get('gruppeHilft') or person.get('parent.gruppeHilft')
 				yesCb()
 			else
 				noCb()
