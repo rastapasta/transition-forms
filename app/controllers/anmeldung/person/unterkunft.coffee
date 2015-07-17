@@ -7,7 +7,7 @@ AnmeldungPersonUnterkunftController = Ember.Controller.extend
 
 	unterkuenfte: (->
 		single = not @get('model.person.istGruppe') and @get('model.person.id') is '1'
-		mitglieder = @get('model.gruppe.length')-1
+		mitglieder = @get('model.gruppe.length')
 
 		unterkuenfte = []
 		@get('model.unterkuenfte').forEach (unterkunft) =>
@@ -20,7 +20,6 @@ AnmeldungPersonUnterkunftController = Ember.Controller.extend
 	cosleepingOptionen: (->
 		personen = []
 		@get('model.gruppe').forEach (person) =>
-			return if person.get('name') is ""
 			return if person.get('id') is @get('model.person.id')
 			if person.get('id') > @get('model.person.id')
 				personen.push person

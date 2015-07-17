@@ -6,7 +6,7 @@ hr style="margin:0 0 10px 0;"
 			.form-group.col-sm-6.col-xs-12
 				.input-group
 					span.input-group-addon: i.glyphicon.glyphicon-user
-					=input class="form-control" placeholder="Vor- & Nachname" value=person.name disabled=person.istBucher
+					=input class="form-control" placeholder="Vor- & Nachname" value=person.name disabled=person.istBucher key-up="updateGruppe"
 			.col-sm-3.col-xs-6: .radio
 				label
 					radio-button value=true checked=person.istErwachsen disabled=person.istBucher

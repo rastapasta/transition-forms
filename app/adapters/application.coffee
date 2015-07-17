@@ -1,8 +1,8 @@
 `import DS from 'ember-data'`
 Adapter = DS.FixtureAdapter.extend
 	simulateRemoteResponse: false
-	counter: 3
+	counter: 2
 	generateIdForRecord: ->
-  		"person-" + @counter++
+  		@counter++
 
 `export default Adapter`

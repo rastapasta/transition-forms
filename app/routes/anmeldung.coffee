@@ -11,7 +11,7 @@ AnmeldungRoute = Ember.Route.extend
 		count = gruppe.get 'length'
 		for i in [0...count]
 			if gruppe.objectAt(i).get('id') is id
-				return null if (backwards and i is 0) or (not backwards and i is count-2)
+				return null if (backwards and i is 0) or (not backwards and i is count-1)
 				return gruppe.objectAt(if backwards then i-1 else i+1).get 'id'
 
 	canSeeUnterkunft: (id, yesCb, noCb) ->

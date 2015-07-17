@@ -62,10 +62,12 @@ Person.reopenClass
 		land: 'Deutschland'
 		email: 'test@test.de'
 		telefon: '0123 - 12345'
-	},{
-		id: '2'
 	}]
 	###,{
+		id: '2'
+	}
+	]
+	,{
 		id: 'a'
 		name: 'Kim Dreit'
 		beitrag: 'soli'

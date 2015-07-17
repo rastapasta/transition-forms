@@ -7,7 +7,6 @@ AnmeldungController = Ember.Controller.extend
 			when false
 				@get('model.gruppe').forEach (p) ->
 					p.deleteRecord() if p.get('id') isnt '1'
-				@store.createRecord 'person'
 				@transitionToRoute 'anmeldung.person.beitrag', 1
 	).observes 'model.person.istGruppe'
 
