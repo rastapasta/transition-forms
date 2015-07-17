@@ -7,6 +7,9 @@ Unterkunft = DS.Model.extend
 	preis: DS.attr 'number'
 	achtung: DS.attr 'string'
 
+	umsonstFuerKinder: DS.attr 'boolean', defaultValue: false
+	umsonstFuerHelfer: DS.attr 'boolean', defaultValue: false
+
 	moreThanOne: Ember.computed.gt 'plaetze', 1
 	
 Unterkunft.reopenClass
@@ -18,6 +21,7 @@ Unterkunft.reopenClass
 		preis: 10
 		achtung: 'Wir weisen darauf hin, dass die Duschmöglichkeiten begrenzt sind.<br/>
 Bitte bringe Deine eigene Bettwäsche bzw. Schlafsack mit.'
+		umsonstFuerHelfer: true
 	},{
 		id: 'einzelzimmer'
 		name: 'Hotel-Einzelzimmer'
@@ -45,13 +49,16 @@ Bitte bringe Deine eigene Bettwäsche bzw. Schlafsack mit.'
 		preis: 5
 		achtung: 'Wir weisen darauf hin, dass die Duschmöglichkeiten begrenzt sind.<br/>
 Bitte sorge selbst für entsprechende Ausrüstung wie Zelt, Schlafsack usw.
-'
+'		umsonstFuerHelfer: true
+		umsonstFuerKinder: true
 	},{
 		id: 'wohnmobil'
 		name: 'Wohnmobil auf dem Parkplatz'
 		plaetze: 1
 		preis: 5
 		achtung: 'Wir weisen darauf hin, dass die Duschmöglichkeiten begrenzt sind.'
+		umsonstFuerHelfer: true
+		umsonstFuerKinder: true
 	},{
 		id: 'keine'
 		name: 'Ich organisiere die Übernachtung selbst'
