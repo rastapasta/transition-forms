@@ -42,6 +42,10 @@ Person = DS.Model.extend
   	@get('istGruppe') or @get('id') isnt '1'
   ).property 'id', 'istGruppe'
 
+  reistGruppeZusammen: (->
+  	@get('gruppeReist') or (@get('parent') and @get('parent.gruppeReist'))
+  ).property 'gruppeReist', 'parent.gruppeReist'
+
 Person.reopenClass
 	FIXTURES: [{
 		id: 1

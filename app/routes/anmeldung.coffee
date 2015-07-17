@@ -25,7 +25,7 @@ AnmeldungRoute = Ember.Route.extend
 		next: (current, id) ->
 			switch current
 				when "gruppe"
-					@transitionTo "anmeldung.person.beitrag", 1
+					@transitionTo "anmeldung.person.anreise", 1
 				when "anreise"
 					@transitionTo "anmeldung.person.beitrag", id
 				when "beitrag"
