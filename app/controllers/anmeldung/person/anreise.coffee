@@ -27,6 +27,11 @@ AnmeldungPersonAnreiseController = Ember.Controller.extend
 			@set 'model.person.anreise', undefined
 	).observes 'model.person.willHelfen'
 
+	abreiseAmSonntag: (->
+		if @get('model.person.anreise') is 'sonntag' 
+			@set 'model.person.abreise', 'sonntag'
+	).observes 'model.person.anreise'
+
 	hilfeClass: (->
 		'darkred' if @get('model.person.willHelfen')
 	).property 'model.person.willHelfen'
@@ -34,7 +39,7 @@ AnmeldungPersonAnreiseController = Ember.Controller.extend
 	forwardDisabled: (->
 		not @get('model.person.anreise') or not @get('model.person.abreise')
 	).property 'model.person.anreise', 'model.person.abreise'
-	
+
 	anreiseTage: (->
 		tag for tag in @tage when not tag.nurHelfer or @get('model.person.willHelfen')
 	).property 'model.person.willHelfen'

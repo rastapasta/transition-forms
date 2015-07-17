@@ -1,7 +1,10 @@
 hr style="margin:0 0 10px 0;"
-.anreise style="min-height:325px;"
-	label style="font-size:120%;display:block;" Tage auf dem Netzwerktreffen
-	
+.anreise style="min-height:330px;"
+	label style="font-size:120%;display:block;"
+		if model.person.istInGruppe
+			.darkred.pull-right von #{model.person.name}
+		| Tage auf dem Netzwerktreffen
+
 	if kannHelfen
 		label style="margin-top:10px;" Interesse am Mithelfen?
 		.row
@@ -25,6 +28,9 @@ hr style="margin:0 0 10px 0;"
 			.col-sm-2.col-xs-2.text-center style="padding-top:5px;" bis
 			.col-sm-5.col-xs-5.text-center
 				view "select" content=abreiseTage optionValuePath="content.id" optionLabelPath="content.value" class="form-control" value=model.person.abreise prompt="Abreise am.."
+
+		unless kannHelfen
+			div style="margin-top:100px;" &nbsp;
 
 		label style="margin-top:10px;margin-bottom:10px;" Rezeptionszeiten vor Ort
 		table.table style="margin-bottom:0;"

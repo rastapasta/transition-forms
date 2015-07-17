@@ -45,6 +45,11 @@ AnmeldungGruppeController = Ember.Controller.extend
 		tag for tag in @tage when (found ||= anreise is tag.id) and not tag.nurAnreise
 	).property 'model.bucher.anreise'
 
+	abreiseAmSonntag: (->
+		if @get('model.bucher.anreise') is 'sonntag' 
+			@set 'model.bucher.abreise', 'sonntag'
+	).observes 'model.bucher.anreise'
+
 	gruppeHatKind: (->
 		hatKind = false
 		@get('model.gruppe').forEach (person) ->
