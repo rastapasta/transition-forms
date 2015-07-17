@@ -8,6 +8,11 @@ AnmeldungPersonAnreiseController = Ember.Controller.extend
 		{id: 'sonntag', value: 'Sonntag, 30.8.'}
 	]
 
+	# TODO: much smoother when done in the template
+	fridayClass: (-> if not @get('model.person.anreise') or @get('model.person.anreise') is 'freitag' then 'highlight' else '').property 'model.person.anreise'
+	saturdayClass: (-> if not @get('model.person.anreise') or @get('model.person.anreise') is 'samstag' then 'highlight' else '').property 'model.person.anreise'
+	sundayClass: (-> if not @get('model.person.anreise') or @get('model.person.anreise') is 'sonntag' then 'highlight' else '').property 'model.person.anreise'
+
 	canGoBack: Ember.computed.alias 'model.person.istInGruppe'
 
 	willHelfen: (->

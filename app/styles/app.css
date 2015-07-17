@@ -1,3 +1,10 @@
+.anreise .table th, .anreise .table td {
+	color: #bbb;
+}
+.highlight {
+	color: #000 !important;
+}
+
 .zusammenfassung td {
 	line-height: 18px !important;
 }

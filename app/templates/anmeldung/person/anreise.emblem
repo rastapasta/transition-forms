@@ -1,9 +1,8 @@
 hr style="margin:0 0 10px 0;"
 .anreise style="min-height:325px;"
-	label style="font-size:120%;" Tage auf dem Netzwerktreffen
-	br
-	br
-	label Interesse am Mithelfen?
+	label style="font-size:120%;display:block;" Tage auf dem Netzwerktreffen
+	
+	label style="margin-top:10px;" Interesse am Mithelfen?
 	.row
 		.col-sm-12
 			' Wir suchen bis zu 10 Teilnehmer*innen, die bereits
@@ -25,6 +24,17 @@ hr style="margin:0 0 10px 0;"
 		.col-sm-5.col-xs-5.text-center
 			view "select" content=abreiseTage optionValuePath="content.id" optionLabelPath="content.value" class="form-control" value=model.person.abreise prompt="Abreise am.."
 
+
+	label style="margin-top:10px;margin-bottom:10px;" Rezeptionszeiten vor Ort
+	table.table style="margin-bottom:0;"
+		thead
+			th.text-center class=fridayClass Freitag
+			th.text-center class=saturdayClass Samstag
+			th.text-center class=sundayClass Sonntag
+		tbody
+			td.text-center class=fridayClass bis 14-16 Uhr, 21-22 Uhr
+			td.text-center class=saturdayClass 8:00 - 9:30 Uhr
+			td.text-center class=sundayClass ggf. Sonntag 8:00-8:30 Uhr
 button.btn.btn-success.pull-right{action "next" "anreise" model.person.id} style="margin-top:10px" disabled=forwardDisabled
 	' Weiter
 	i.glyphicon.glyphicon-chevron-right
