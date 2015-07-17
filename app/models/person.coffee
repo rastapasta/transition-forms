@@ -39,19 +39,6 @@ Person = DS.Model.extend
   	@get('istGruppe') or @get('id') isnt '1'
   ).property 'id', 'istGruppe'
 
-  vorname: (->
-  	@get('name').split(' ')[0]
-  ).property 'name'
-
-  nachname: (->
-  	parts = @get('name').split ' '
-  	parts[parts.length-1]
-  ).property 'name'
-
-  shortname: (->
-  	@get('vorname')+' '+@get('nachname').charAt(0).toUpperCase()+'.'
-  ).property 'name'
-
 Person.reopenClass
 	FIXTURES: [{
 		id: 1

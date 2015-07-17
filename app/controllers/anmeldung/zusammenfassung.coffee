@@ -4,8 +4,7 @@ AnmeldungZusammenfassungController = Ember.Controller.extend
 	beitraege: (->
 		mix = {}
 		@get('model.gruppe').forEach (person) ->
-			beitrag = person.get 'beitrag'
-			return unless beitrag and person.get('name')
+			return unless beitrag = person.get 'beitrag'
 			
 			id = beitrag.get 'id'
 			
@@ -28,7 +27,7 @@ AnmeldungZusammenfassungController = Ember.Controller.extend
 			return if person.get('schlaeftBei')
 
 			unterkunft = person.get 'unterkunft'
-			return if not unterkunft or not unterkunft.get('id') or not person.get('name')
+			return if not unterkunft or not unterkunft.get('id')
 			
 			personen = [person]
 			person.get('unterkunftMit').forEach (person) ->
