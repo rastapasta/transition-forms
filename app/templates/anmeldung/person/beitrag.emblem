@@ -34,7 +34,7 @@ hr style="margin:0 0 10px 0;"
 			' Verbindung (Kontaktdaten siehe oben).
 
 button.btn.btn-success.pull-right{action "next" "beitrag" model.person.id} disabled=forwardDisabled
-	| Weiter 
+	' Weiter
 	i.glyphicon.glyphicon-chevron-right
 
 button.btn.btn-default{action "back" "beitrag" model.person.id}

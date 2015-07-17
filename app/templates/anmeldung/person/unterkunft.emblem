@@ -8,7 +8,7 @@ hr style="margin:0 0 10px 0;"
 		unterkunft-option gruppe=model.gruppe unterkunft=unterkunft person=model.person cosleeping=cosleepingOptionen
 
 button.btn.btn-success.pull-right{action "next" "unterkunft" model.person.id} disabled=forwardDisabled
-	| Weiter 
+	' Weiter
 	i.glyphicon.glyphicon-chevron-right
 
 button.btn.btn-default{action "back" "unterkunft" model.person.id}

@@ -1,5 +1,5 @@
 hr style="margin:0 0 10px 0;"
-.mitglieder
+.mitglieder style="min-height:325px;"
 	label style="font-size:120%;" Familien- bzw. Gruppenmitglieder
 	each person in model.gruppe
 		.row
@@ -20,7 +20,7 @@ hr style="margin:0 0 10px 0;"
 					view "select" content=alter optionValuePath="content.id" optionLabelPath="content.value" class="form-control alter" value=person.alter prompt="Alter"
 
 	label style="margin-top:10px;" Interesse am Mithelfen?
-	.checkbox
+	.checkbox style="margin-top:0;"
 		label
 			=input type="checkbox" checked=model.bucher.gruppeHilft
 			' Wir suchen bis zu 10 Teilnehmer*innen, die bereits
@@ -31,8 +31,8 @@ hr style="margin:0 0 10px 0;"
 
 	label style="margin-top:10px;" Anwesenheit beim Netzwerktreffen
 	.row
-		.col-sm-6.checkbox
-			label
+		.col-sm-6.checkbox style="margin-top:0;"
+			label style="padding-top:5px;"
 				=input type="checkbox" checked=model.bucher.gruppeReist
 				| Wir reisen alle am gleichen Tag an und ab
 		if model.bucher.gruppeReist
@@ -43,7 +43,7 @@ hr style="margin:0 0 10px 0;"
 
 	if gruppeHatKind
 		label style="margin-top:10px;" Kinderbetreuung während des Netzwerktreffens
-		.checkbox
+		.checkbox style="margin-bottom:0;"
 			label
 				=input type="checkbox" checked=model.bucher.willBetreuen
 				| Ich möchte mich an der selbstorganisierten Kinderbetreuung beteiligen
@@ -60,6 +60,6 @@ hr style="margin:0 0 10px 0;"
 			' absprechen könnt.
 
 
-	button.btn.btn-success.pull-right{action "next" "gruppe"} style="margin-top:10px" disabled=forwardDisabled
-		| Weiter 
-		i.glyphicon.glyphicon-chevron-right
+button.btn.btn-success.pull-right{action "next" "gruppe"} style="margin-top:10px" disabled=forwardDisabled
+	' Weiter
+	i.glyphicon.glyphicon-chevron-right
