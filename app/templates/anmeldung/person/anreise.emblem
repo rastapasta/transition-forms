@@ -2,19 +2,20 @@ hr style="margin:0 0 10px 0;"
 .anreise style="min-height:325px;"
 	label style="font-size:120%;display:block;" Tage auf dem Netzwerktreffen
 	
-	label style="margin-top:10px;" Interesse am Mithelfen?
-	.row
-		.col-sm-12
-			' Wir suchen bis zu 10 Teilnehmer*innen, die bereits
-			b class=hilfeClass am Mittwoch (26.8.) anreisen 
-			' und Donnerstag mit aufbauen, Transparente malen etc. sowie während des Wochenendes helfend unterstützen.
-			br
-			' Im Tausch bieten wir <i>kostenlose Teilnahme</i> und <i>Unterbringung</i> während des Treffens!
+	if kannHelfen
+		label style="margin-top:10px;" Interesse am Mithelfen?
+		.row
+			.col-sm-12
+				' Wir suchen bis zu 10 Teilnehmer*innen, die bereits
+				b class=hilfeClass am Mittwoch (26.8.) anreisen 
+				' und Donnerstag mit aufbauen, Transparente malen etc. sowie während des Wochenendes helfend unterstützen.
+				br
+				' Im Tausch bieten wir <i>kostenlose Teilnahme</i> und <i>Unterbringung</i> während des Treffens!
 
-	.checkbox
-		label
-			=input type="checkbox" checked=model.person.willHelfen
-			| Ich melde mich zum Aufbau, zur Unterstützung beim Wochenende und zum Abbau an
+		.checkbox
+			label
+				=input type="checkbox" checked=model.person.willHelfen
+				| Ich melde mich zum Aufbau, zur Unterstützung beim Wochenende und zum Abbau an
 
 	unless model.person.reistGruppeZusammen
 		label style="margin-top:10px;margin-bottom:10px;" Anwesenheit beim Netzwerktreffen

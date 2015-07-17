@@ -15,6 +15,11 @@ AnmeldungPersonAnreiseController = Ember.Controller.extend
 
 	canGoBack: Ember.computed.alias 'model.person.istInGruppe'
 
+	kannHelfen: (->
+		(@get('model.person.gruppeHilft') or @get('model.person.parent.gruppeHilft')) or
+		(@get('model.person.id') is '1' and not @get('model.person.istInGruppe'))
+	).property 'model.person.gruppeHilft', 'model.person.parent.gruppeHilft', 'model.person.id', 'model.person.istInGruppe'
+
 	willHelfen: (->
 		if @get 'model.person.willHelfen'
 			@set 'model.person.anreise', 'mittwoch'
@@ -29,6 +34,7 @@ AnmeldungPersonAnreiseController = Ember.Controller.extend
 	forwardDisabled: (->
 		not @get('model.person.anreise') or not @get('model.person.abreise')
 	).property 'model.person.anreise', 'model.person.abreise'
+	
 	anreiseTage: (->
 		tag for tag in @tage when not tag.nurHelfer or @get('model.person.willHelfen')
 	).property 'model.person.willHelfen'
