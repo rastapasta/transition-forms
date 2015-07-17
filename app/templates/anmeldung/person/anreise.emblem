@@ -20,7 +20,7 @@ hr style="margin:0 0 10px 0;"
 				=input type="checkbox" checked=model.person.willHelfen
 				| Ich melde mich zum Aufbau, zur Unterstützung beim Wochenende und zum Abbau an
 
-	unless model.person.reistGruppeZusammen
+	if zeigeAnreise
 		label style="margin-top:10px;margin-bottom:10px;" Anwesenheit beim Netzwerktreffen
 		.row
 			.col-sm-5.col-xs-5.text-center class=hilfeClass

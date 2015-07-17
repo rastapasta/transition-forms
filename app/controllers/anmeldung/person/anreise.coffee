@@ -20,6 +20,10 @@ AnmeldungPersonAnreiseController = Ember.Controller.extend
 		(@get('model.person.id') is '1' and not @get('model.person.istInGruppe'))
 	).property 'model.person.gruppeHilft', 'model.person.parent.gruppeHilft', 'model.person.id', 'model.person.istInGruppe'
 
+	zeigeAnreise: (->
+		not @get('model.person.istInGruppe') or not @get('model.person.reistGruppeZusammen')
+	).property 'model.person.istInGruppe', 'model.person.reistGruppeZusammen'
+
 	willHelfen: (->
 		if @get 'model.person.willHelfen'
 			@set 'model.person.anreise', '26.08.'
