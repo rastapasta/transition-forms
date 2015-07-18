@@ -14,9 +14,10 @@ AnmeldungPersonAnreiseController = Ember.Controller.extend
 	sundayClass: (-> if not @get('model.person.anreise') or @get('model.person.anreise') is '30.08.' then 'highlight' else '').property 'model.person.anreise'
 
 	kannHelfen: (->
+		@get('model.person.istErwachsen') and
 		(@get('model.person.gruppeHilft') or @get('model.person.parent.gruppeHilft')) or
 		(@get('model.person.id') is '1' and not @get('model.person.istInGruppe'))
-	).property 'model.person.gruppeHilft', 'model.person.parent.gruppeHilft', 'model.person.id', 'model.person.istInGruppe'
+	).property 'model.person.istErwachsen', 'model.person.gruppeHilft', 'model.person.parent.gruppeHilft', 'model.person.id', 'model.person.istInGruppe'
 
 	zeigeAnreise: (->
 		not @get('model.person.istInGruppe') or not @get('model.person.reistGruppeZusammen')

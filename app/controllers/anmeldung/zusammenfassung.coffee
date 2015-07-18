@@ -39,12 +39,9 @@ AnmeldungZusammenfassungController = Ember.Controller.extend
 			
 			personen = [person]
 
-			if person.get('istInGruppe') and first.get('gruppeReist')
-				anreise = first.get('anreise')
-				abreise = first.get('abreise')
-			else
-				anreise = person.get('anreise')
-				abreise = person.get('abreise')
+			dateSource = if person.get('istInGruppe') and first.get('gruppeReist') then first else person
+			anreise = dateSource.get('anreise')
+			abreise = dateSource.get('abreise')
 
 			person.get('unterkunftMit').forEach (person) =>
 				unless first.get('gruppeReist')
@@ -63,7 +60,6 @@ AnmeldungZusammenfassungController = Ember.Controller.extend
 			umsonstWeilHelfer = unterkunft.get('umsonstFuerHelfer') and person.get('willHelfen')
 			
 			preis = 0 if umsonst = (umsonstWeilKind or umsonstWeilHelfer)
-
 
 			mix.push
 				count: naechte

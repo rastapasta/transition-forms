@@ -23,9 +23,10 @@ AnmeldungRoute = Ember.Route.extend
 
 	canSeeAnreise: (id, yesCb, noCb) ->
 		@store.find('person', id).then (person) =>
-			return yesCb() if not person.get('istInGruppe')
+			return yesCb() unless person.get 'istInGruppe'
 
-			if (not person.get('gruppeReist') and not person.get('parent.gruppeReist')) or person.get('gruppeHilft') or person.get('parent.gruppeHilft')
+			if (not person.get('gruppeReist') and not person.get('parent.gruppeReist')) or
+			(person.get('istErwachsen') and (person.get('gruppeHilft') or person.get('parent.gruppeHilft')))
 				yesCb()
 			else
 				noCb()
