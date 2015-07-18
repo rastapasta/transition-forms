@@ -42,8 +42,10 @@ AnmeldungGruppeController = Ember.Controller.extend
 					person.set 'beitrag', undefined
 			else
 				if person.get('beitrag.id') isnt 'kostenlos'
-					@store.find('beitrag', 'kostenlos').then (beitrag) =>
-						person.set 'beitrag', beitrag
+					# TODO: that's such a dirty hack to avoid a race condition caused shuffling of the collection's order
+					@store.find('beitrag').then =>
+						@store.find('beitrag', 'kostenlos').then (beitrag) =>
+							person.set 'beitrag', beitrag
 	).observes 'model.gruppe.@each.istErwachsen'
 
 	anreiseTage: (->
