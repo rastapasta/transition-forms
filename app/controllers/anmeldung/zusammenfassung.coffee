@@ -1,6 +1,12 @@
 `import Ember from 'ember'`
 
 AnmeldungZusammenfassungController = Ember.Controller.extend
+	tage:
+		'26.08.': 0
+		'28.08.': 2
+		'29.08.': 3
+		'30.08.': 4
+
 	beitraege: (->
 		mix = {}
 		@get('model.gruppe').forEach (person) ->
@@ -23,21 +29,53 @@ AnmeldungZusammenfassungController = Ember.Controller.extend
 
 	unterkuenfte: (->
 		mix = []
-		@get('model.gruppe').forEach (person) ->
+		first = null
+		@get('model.gruppe').forEach (person) =>
+			first ||= person
 			return if person.get('schlaeftBei')
 
 			unterkunft = person.get 'unterkunft'
 			return if not unterkunft or not unterkunft.get('id')
 			
 			personen = [person]
-			person.get('unterkunftMit').forEach (person) ->
+
+			if person.get('istInGruppe') and first.get('gruppeReist')
+				anreise = first.get('anreise')
+				abreise = first.get('abreise')
+			else
+				anreise = person.get('anreise')
+				abreise = person.get('abreise')
+
+			person.get('unterkunftMit').forEach (person) =>
+				unless first.get('gruppeReist')
+					an = person.get('anreise')
+					ab = person.get('abreise')
+					anreise = an if @tage[an] < @tage[anreise]
+					abreise = ab if @tage[ab] > @tage[abreise]
+
 				personen.push person
 
+			naechte = @tage[abreise]-@tage[anreise]
+
+			preis = unterkunft.get('preis')
+
+			umsonstWeilKind = unterkunft.get('umsonstFuerKinder') and not person.get('istErwachsen')
+			umsonstWeilHelfer = unterkunft.get('umsonstFuerHelfer') and person.get('willHelfen')
+			
+			preis = 0 if umsonst = (umsonstWeilKind or umsonstWeilHelfer)
+
+
 			mix.push
-				count: 2
+				count: naechte
 				personen: personen
 				unterkunft: unterkunft
-				summe: 2*unterkunft.get('preis')
+				summe: naechte*preis
+				preis: preis
+				umsonstWeilKind: umsonstWeilKind
+				umsonstWeilHelfer: umsonstWeilHelfer
+				umsonst: umsonst
+				anreise: anreise
+				abreise: abreise
 
 		mix
 	).property 'model.gruppe.@each.unterkunft'

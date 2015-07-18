@@ -73,18 +73,26 @@ hr style="margin:0 0 10px 0;"
 							unterkunft.unterkunft.name
 							br
 							small style="color:#aaa;"
-								' 28.08.
+								' #{unterkunft.anreise}
 								i.glyphicon.glyphicon-arrow-right
-								|  30.08.
+								|  #{unterkunft.abreise}
 						td
 							if model.bucher.istGruppe
 								each person in unterkunft.personen
 									person.name
 									br
 						td.text-right
-							' #{unterkunft.unterkunft.preis} &euro;
-							sup
-								| / Nacht
+							if unterkunft.umsonst
+								small.text-center
+									' kostenlos für<br/>
+									if unterkunft.umsonstWeilKind
+										| Kinder
+									if unterkunft.umsonstWeilHelfer
+										| Helfer*innen
+							else
+								' #{unterkunft.preis} &euro;
+								sup
+									| / Nacht
 						td.text-right #{unterkunft.summe} &euro;
 
 				tr
