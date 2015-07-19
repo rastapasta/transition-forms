@@ -39,9 +39,9 @@ hr style="margin:0 0 10px 0;"
 				th class=saturdayClass Samstag
 				th class=sundayClass Sonntag
 			tbody
-				td class=fridayClass bis 14-16 Uhr, 21-22 Uhr
+				td class=fridayClass 14-16 Uhr, 21-22 Uhr
 				td class=saturdayClass 8:00 - 9:30 Uhr
-				td class=sundayClass ggf. Sonntag 8:00-8:30 Uhr
+				td class=sundayClass ggf. 8:00-8:30 Uhr
 button.btn.btn-success.pull-right{action "next" "anreise" model.person.id} disabled=forwardDisabled
 	' Weiter
 	i.glyphicon.glyphicon-chevron-right
