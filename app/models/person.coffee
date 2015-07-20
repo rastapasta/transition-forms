@@ -54,6 +54,9 @@ Person.reopenClass
 	FIXTURES: [{
 		id: 1
 		istBucher: true
+	}]
+
+###
 		name: 'Alex Bert'
 		initiative: 'Transition Musterstadt'
 		strasse: 'Maximilianstrasse'
@@ -63,6 +66,6 @@ Person.reopenClass
 		land: 'Deutschland'
 		email: 'test@test.de'
 		telefon: '0123 - 12345'
-	}]
+###
 
 `export default Person`
