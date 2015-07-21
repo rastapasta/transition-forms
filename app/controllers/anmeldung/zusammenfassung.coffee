@@ -47,8 +47,8 @@ AnmeldungZusammenfassungController = Ember.Controller.extend
 				unless first.get('gruppeReist')
 					an = person.get('anreise')
 					ab = person.get('abreise')
-					anreise = an if @tage[an] < @tage[anreise]
-					abreise = ab if @tage[ab] > @tage[abreise]
+					anreise = an if an and @tage[an] < @tage[anreise]
+					abreise = ab if ab and @tage[ab] > @tage[abreise]
 
 				personen.push person
 
@@ -82,5 +82,21 @@ AnmeldungZusammenfassungController = Ember.Controller.extend
 		summe += beitrag.summe for beitrag in @get('beitraege')
 		summe
 	).property 'unterkuenfte', 'beitraege'
+
+	actions:
+		anmelden: ->
+			text = "Liebe Michelle und Vanny,
+
+ihr habt soeben folgende Anmeldung erhalten:
+
+Anmelder*in:
+  #{@get('model.bucher.name')}
+  #{@get('model.bucher.strasse')} #{@get('model.bucher.hausnummer')}
+  #{@get('model.bucher.plz')} #{@get('model.bucher.ort')}
+  #{@get('model.bucher.land')}
+
+			"
+			alert text
+
 
 `export default AnmeldungZusammenfassungController`

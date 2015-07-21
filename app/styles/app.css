@@ -82,7 +82,7 @@ input.land {
 
 .is-disabled * {
 	color: #bbb !important;
-	cursor: not-allowed;
+	cursor: not-allowed !important;
 }
 
 
