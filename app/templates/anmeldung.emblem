@@ -27,18 +27,24 @@
 			label Telefon:
 			=input class="form-control" placeholder="Handy- oder Festnetznummer" value=model.person.telefon
 	.col-sm-7
-		label Meldest du nur dich, oder eine ganze Familie/Gruppe an?
-		.row class=forwardDisabled:is-disabled:none
-			.col-sm-6
-				.radio style="margin-top:5px;"
-					label
-						radio-button value=false checked=model.person.istGruppe disabled=forwardDisabled
-						/| Ich melde nur mich persönlich an
-						| Persönliche Anmeldung
-			.col-sm-6
-				.radio style="margin-top:5px;"
-					label
-						radio-button value=true checked=model.person.istGruppe disabled=forwardDisabled
-						/| Dies ist eine Familien-/Gruppenanmeldung
-						| Familien-/Gruppenanmeldung
+		div mouseLeave="mouseOut"
+			div mouseEnter="mouseIn"
+				label Meldest du nur dich, oder eine ganze Familie/Gruppe an?
+				.row class=forwardDisabled:is-disabled:none
+					.col-sm-6
+						.radio style="margin-top:5px;"
+							label
+								radio-button value=false checked=model.person.istGruppe disabled=forwardDisabled
+								/| Ich melde nur mich persönlich an
+								| Persönliche Anmeldung
+					.col-sm-6
+						.radio style="margin-top:5px;"
+							label
+								radio-button value=true checked=model.person.istGruppe disabled=forwardDisabled
+								/| Dies ist eine Familien-/Gruppenanmeldung
+								| Familien-/Gruppenanmeldung
+
+		if displayValidation
+			label style="color:darkred;margin-top:10px;" Bitte fülle zunächst alle Felder aus, um mit der Anmeldung fortzufahren.
+
 		outlet

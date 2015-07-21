@@ -11,6 +11,12 @@ AnmeldungController = Ember.Controller.extend
 
 	forwardDisabled: Ember.computed.not 'validates'
 
+	displayValidation: false
+
+	actions:
+		mouseIn: -> @set 'displayValidation', true unless @get 'validates'
+		mouseOut: -> @set 'displayValidation', false
+
 	gruppenChange: (->
 		switch @get 'model.person.istGruppe'
 			when true then @transitionToRoute 'anmeldung.gruppe'
