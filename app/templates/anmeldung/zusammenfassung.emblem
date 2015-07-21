@@ -108,14 +108,20 @@ hr style="margin:0 0 10px 0;"
 						' zukommende Kosten:
 					td.text-right: strong #{summe} &euro;
 				
+if sent
+	.row
+		.col-sm-12.text-center style="color:darkgreen;font-weight:bold;"
+			| Herzlichen Dank!
+			br
+			| Wir haben Deine Anmeldung erhalten und werden uns in Kürze bei dir melden.
+else
+	button.btn.btn-danger.pull-right{action "anmelden"} disabled=forwardDisabled
+		if model.bucher.istGruppe
+			' Gruppe verbindlich anmelden
+		else
+			' Verbindlich anmelden
+		i.glyphicon.glyphicon-play
 
-button.btn.btn-danger.pull-right{action "anmelden"} disabled=forwardDisabled
-	if model.bucher.istGruppe
-		' Gruppe verbindlich anmelden
-	else
-		' Verbindlich anmelden
-	i.glyphicon.glyphicon-play
-
-button.btn.btn-default{action "back" "zusammenfassung"}
-	i.glyphicon.glyphicon-chevron-left
-	|  Zurück
+	button.btn.btn-default{action "back" "zusammenfassung"}
+		i.glyphicon.glyphicon-chevron-left
+		|  Zurück

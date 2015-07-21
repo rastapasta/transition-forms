@@ -16,7 +16,8 @@ AnmeldungRoute = Ember.Route.extend
 
 	canSeeUnterkunft: (id, yesCb, noCb) ->
 		@store.find('person', id).then (person) =>
-			if person.get('schlaeftBei')
+			# TODO: Don't show if anreise = abreise
+			if person.get('schlaeftBei') or (person.get('anreise') and person.get('anreise') is person.get('abreise'))
 				noCb()
 			else
 				yesCb()

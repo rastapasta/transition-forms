@@ -45,6 +45,6 @@
 								| Familien-/Gruppenanmeldung
 
 		if displayValidation
-			label style="color:darkred;margin-top:10px;" Bitte fülle zunächst alle Felder aus, um mit der Anmeldung fortzufahren.
+			label.text-center style="color:darkred;margin-top:10px;display:block;" Bitte fülle zunächst alle Felder aus, um mit der Anmeldung fortzufahren.
 
 		outlet
