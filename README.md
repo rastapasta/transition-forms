@@ -2,11 +2,6 @@
 
 Registration forms for events hosted by the non-profit Transition movement.
 
-## ToDos
-
-* Calculation/Summary: implement free accomodation for kids and volunteers
-* Upload: actually... send the mail out to the team :)
-
 ## How to work on it?
 
 Get the following things up and running in your environment
