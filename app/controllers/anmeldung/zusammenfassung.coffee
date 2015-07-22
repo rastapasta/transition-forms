@@ -178,7 +178,7 @@ ihr habt soeben folgende Anmeldung erhalten:\n
 	actions:
 		anmelden: ->
 			$.ajax
-				url: 'http://survey.tr-r.de/netzwerktreffen/mail.php'
+				url: 'https://www.transition-regensburg.de/netzwerktreffen/mail.php'
 				dataType: 'jsonp'
 				data:
 					title: @generateTitle()
